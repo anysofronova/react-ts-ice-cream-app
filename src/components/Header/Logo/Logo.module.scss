@@ -1,0 +1,16 @@
+.logo {
+  @apply flex justify-start content-center grow shrink;
+  img {
+    @apply w-16 mr-4;
+  }
+  .main {
+    @apply flex flex-col justify-evenly;
+
+    h1 {
+      @apply text-lg font-semibold;
+    }
+    h3 {
+      @apply text-xs font-bold text-slate-500;
+    }
+  }
+}
