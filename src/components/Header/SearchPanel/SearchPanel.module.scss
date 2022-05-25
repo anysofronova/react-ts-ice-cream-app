@@ -1,0 +1,6 @@
+.searchPanel {
+  @apply flex justify-center items-center  w-fit h-fit px-3 py-1;
+  .input {
+    @apply border rounded-md px-3 py-1;
+  }
+}
