@@ -1,0 +1,35 @@
+.item {
+  @apply flex flex-col bg-slate-100 p-2 rounded-md;
+  .title {
+    @apply text-center my-4 text-lg font-medium;
+  }
+  .filter {
+    @apply rounded-md overflow-hidden border text-sm bg-white;
+
+    .container,
+    .count {
+      @apply flex;
+      li {
+        @apply text-center flex-1 px-3 py-2 cursor-pointer;
+        &:hover {
+          @apply bg-gray-200;
+        }
+      }
+    }
+    .container {
+      @apply border-b;
+    }
+  }
+  .buying {
+    @apply flex mt-3 justify-evenly items-center px-3;
+    .price {
+      @apply flex-1 font-semibold;
+    }
+    button {
+      @apply flex-1 border rounded-md py-1 flex  items-center justify-center  bg-white;
+      &:hover {
+        @apply bg-slate-200;
+      }
+    }
+  }
+}
