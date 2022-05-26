@@ -1,0 +1,10 @@
+@media screen and (max-width: 768px) {
+  .sort {
+    @apply w-1/2;
+  }
+}
+@media screen and (max-width: 480px) {
+  .sort {
+    @apply w-3/4;
+  }
+}
