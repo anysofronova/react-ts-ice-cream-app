@@ -41,7 +41,7 @@ const Item = ({
               className={cn(container && styles.active)}
               onClick={() => setContainer(1)}
             >
-              Eco - container
+              Eco
             </li>
           </ul>
           <ul className={styles.count}>

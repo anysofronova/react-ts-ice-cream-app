@@ -1,5 +1,5 @@
 .item {
-  @apply flex flex-col bg-slate-100 p-2 rounded-md justify-between;
+  @apply flex flex-col bg-slate-100 p-2 rounded-md justify-between min-h-max;
   .title {
     @apply text-center text-sm font-medium py-3;
   }
