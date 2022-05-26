@@ -28,6 +28,9 @@
     }
     button {
       @apply flex-1 border border-slate-300 rounded-md py-1 flex  items-center justify-center  bg-white;
+      svg {
+        @apply m-0 mr-1;
+      }
       &:hover {
         @apply bg-slate-100;
       }
