@@ -1,3 +1,34 @@
 .header {
-  @apply flex gap-8 border-b px-8 py-3 items-center;
+  @apply flex gap-4 border-b px-8 py-3 items-center justify-between;
+}
+
+@media screen and (max-width: 1280px) {
+  .header {
+    @apply px-16;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header {
+    @apply px-8 gap-2;
+  }
+}
+@media screen and (max-width: 700px) {
+  .header {
+    @apply grid px-8 gap-4;
+    grid-template-areas: "logo cart" "searchPanel searchPanel";
+  }
+  .logo {
+    grid-area: logo;
+  }
+  .searchPanel {
+    grid-area: searchPanel;
+  }
+  .cart {
+    grid-area: cart;
+  }
+}
+@media screen and (max-width: 480px) {
+  .header {
+    @apply px-4;
+  }
 }

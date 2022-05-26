@@ -1,7 +1,32 @@
+:root {
+  --desktop: 1280px;
+}
+
 .products {
-  @apply px-8 py-3 grid grid-cols-5 gap-3;
+  @apply px-8 py-3 grid grid-cols-6 gap-3;
 }
 
 .pagination {
   @apply px-8 py-3 flex justify-center;
+}
+
+@media screen and (max-width: 1280px) {
+  .products {
+    @apply px-16 grid-cols-3 gap-3;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .products {
+    @apply px-8 grid-cols-2 gap-2;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .products {
+    @apply grid-cols-1 px-4;
+  }
+  svg {
+    margin: auto;
+  }
 }

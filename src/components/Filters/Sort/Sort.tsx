@@ -9,6 +9,7 @@ const Sort = () => {
         Sort by:
       </InputLabel>
       <NativeSelect
+        onChange={(e) => console.log(e.target.value)}
         defaultValue={"best"}
         inputProps={{
           title: "title",

@@ -6,9 +6,15 @@ import Cart from "./Cart/Cart";
 const Header = () => {
   return (
     <div className={styles.header}>
-      <Logo />
-      <SearchPanel />
-      <Cart />
+      <div className={styles.logo}>
+        <Logo />
+      </div>
+      <div className={styles.searchPanel}>
+        <SearchPanel />
+      </div>
+      <div className={styles.cart}>
+        <Cart />
+      </div>
     </div>
   );
 };
