@@ -1,40 +1,37 @@
 .item {
-  @apply flex flex-col bg-slate-100 p-2 rounded-md justify-between;
+  @apply flex flex-col bg-slate-100 p-2 rounded-md justify-between min-h-max;
   .title {
-    @apply text-center text-sm font-medium pb-3;
+    @apply text-center text-sm font-medium py-3;
   }
   .filter {
-    @apply rounded-md overflow-hidden border text-sm bg-white min-h-max;
+    @apply rounded-md overflow-hidden border border-slate-300 text-sm bg-white;
 
     .container,
     .count {
       @apply flex;
       li {
         @apply text-center flex-1 p-1 cursor-pointer;
-        &:hover {
-          @apply bg-gray-100;
-        }
       }
       .active {
         @apply bg-gray-200;
       }
     }
     .container {
-      @apply border-b;
+      @apply border-b border-slate-300;
     }
   }
   .buying {
     @apply flex mt-3 justify-evenly items-center px-3;
     .price {
-      @apply flex-1 font-semibold;
+      @apply flex-1 font-semibold text-center;
     }
     button {
-      @apply flex-1 border rounded-md py-1 flex  items-center justify-center  bg-white;
+      @apply flex-1 border border-slate-300 rounded-md py-1 flex  items-center justify-center  bg-white;
       &:hover {
-        @apply bg-slate-200;
+        @apply bg-slate-100;
       }
       &:hover > span {
-        @apply bg-slate-100;
+        @apply bg-slate-300;
       }
       span {
         @apply ml-2 bg-slate-200 px-3 py-1 rounded-full;

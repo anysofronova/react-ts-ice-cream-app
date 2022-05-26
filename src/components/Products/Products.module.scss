@@ -1,3 +1,7 @@
 .products {
-  @apply px-8 py-3 grid grid-cols-4 gap-3;
+  @apply px-8 py-3 grid grid-cols-5 gap-3;
+}
+
+.pagination {
+  @apply px-8 py-3 flex justify-center;
 }
