@@ -1,19 +1,22 @@
 .item {
-  @apply flex flex-col bg-slate-100 p-2 rounded-md;
+  @apply flex flex-col bg-slate-100 p-2 rounded-md justify-between;
   .title {
-    @apply text-center my-4 text-lg font-medium;
+    @apply text-center text-sm font-medium pb-3;
   }
   .filter {
-    @apply rounded-md overflow-hidden border text-sm bg-white;
+    @apply rounded-md overflow-hidden border text-sm bg-white min-h-max;
 
     .container,
     .count {
       @apply flex;
       li {
-        @apply text-center flex-1 px-3 py-2 cursor-pointer;
+        @apply text-center flex-1 p-1 cursor-pointer;
         &:hover {
-          @apply bg-gray-200;
+          @apply bg-gray-100;
         }
+      }
+      .active {
+        @apply bg-gray-200;
       }
     }
     .container {
@@ -29,6 +32,12 @@
       @apply flex-1 border rounded-md py-1 flex  items-center justify-center  bg-white;
       &:hover {
         @apply bg-slate-200;
+      }
+      &:hover > span {
+        @apply bg-slate-100;
+      }
+      span {
+        @apply ml-2 bg-slate-200 px-3 py-1 rounded-full;
       }
     }
   }
