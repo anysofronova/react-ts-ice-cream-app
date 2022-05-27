@@ -1,7 +1,7 @@
 import Logo from "./Logo/Logo";
 import SearchPanel from "./SearchPanel/SearchPanel";
 import styles from "./Header.module.scss";
-import Cart from "./Cart/Cart";
+import CartBlock from "./CartBlock/CartBlock";
 
 const Header = () => {
   return (
@@ -13,7 +13,7 @@ const Header = () => {
         <SearchPanel />
       </div>
       <div className={styles.cart}>
-        <Cart />
+        <CartBlock />
       </div>
     </div>
   );
