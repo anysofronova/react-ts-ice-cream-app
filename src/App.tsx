@@ -1,14 +1,21 @@
+import { Routes, Route } from "react-router-dom";
+
 import "./App.css";
 import Header from "./components/Header/Header";
-import Filters from "./components/Filters/Filters";
-import Products from "./components/Products/Products";
+import NotFound from "./pages/NotFound/NotFound";
+import Home from "./pages/Home/Home";
+import Cart from "./pages/Cart/Cart";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Filters />
-      <Products />
+      <Routes>
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <NotFound />
     </div>
   );
 }
