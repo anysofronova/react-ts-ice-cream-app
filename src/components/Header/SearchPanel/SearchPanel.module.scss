@@ -1,15 +1,6 @@
 .searchPanel {
-  @apply flex justify-center items-center  w-fit h-fit px-3 py-1;
-  .input {
-    @apply border rounded-md px-3 py-1;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .searchPanel {
-    @apply px-0 py-0;
-    .input {
-      @apply border rounded-md px-3 py-1;
-    }
+  @apply flex justify-center items-center border rounded-md w-fit h-fit px-3 py-1;
+  input {
+    @apply ml-2;
   }
 }
