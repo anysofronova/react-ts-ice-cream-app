@@ -1,0 +1,18 @@
+.cartItem {
+  @apply grid gap-2 items-center justify-items-center border-b py-3;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  .count {
+    @apply flex justify-center items-center;
+    button {
+      @apply px-2 text-xl;
+    }
+  }
+  .price {
+  }
+  .delete {
+    @apply text-xl text-slate-500;
+    &:hover {
+      @apply text-black;
+    }
+  }
+}

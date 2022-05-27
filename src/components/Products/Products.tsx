@@ -17,6 +17,7 @@ const Products = () => {
         return r.json();
       })
       .then((arr) => setItems(arr));
+    window.scrollTo(0, 0);
   }, [pageCount]);
 
   return (

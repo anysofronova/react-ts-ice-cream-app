@@ -1,0 +1,35 @@
+.cart {
+  @apply flex flex-col gap-2 px-32 py-3;
+  .top {
+    @apply flex justify-between items-center;
+    .title {
+      @apply flex gap-2 font-medium text-3xl items-center;
+    }
+    .clear {
+      button {
+        @apply flex gap-2 items-center text-gray-500;
+        &:hover {
+          @apply text-black;
+        }
+      }
+    }
+  }
+  .total {
+    @apply text-right font-medium text-xl pt-3;
+  }
+  .bottom {
+    @apply flex justify-between items-center pt-3 px-3;
+    button {
+      @apply border rounded-3xl px-16 py-2 py-1 text-lg font-normal;
+      &:hover {
+        @apply bg-slate-200;
+      }
+      &.back {
+        @apply text-slate-500;
+        &:hover {
+          @apply text-black;
+        }
+      }
+    }
+  }
+}
