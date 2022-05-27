@@ -1,5 +1,5 @@
 import styles from "./Categories.module.scss";
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import cn from "classnames";
 
 interface ICategories {
@@ -7,7 +7,8 @@ interface ICategories {
   id: number;
 }
 
-const Categories = () => {
+// @ts-ignore
+const Categories = ({ changeCategory }) => {
   const categories: ICategories[] = [
     {
       title: "All",
@@ -30,7 +31,7 @@ const Categories = () => {
       id: 4,
     },
     {
-      title: "Low sugar",
+      title: "Sugar Free",
       id: 5,
     },
     {
@@ -39,12 +40,16 @@ const Categories = () => {
     },
   ];
   const [category, setCategory] = useState(0);
+  const onChangeCategory = (id: SetStateAction<number>, title: string) => {
+    setCategory(id);
+    changeCategory(title.replace(" ", "%20"));
+  };
   return (
     <div className={styles.categories}>
       {categories.map((i) => (
         <li
           key={i.id}
-          onClick={() => setCategory(i.id)}
+          onClick={() => onChangeCategory(i.id, i.title)}
           className={cn(
             styles.category,
             category === i.id ? styles.active : null
