@@ -1,0 +1,146 @@
+$gb: #f2eee8;
+$wh: #ffffff;
+$dark: #383a41;
+$red: #eb6d6d;
+$blue: #5e7fdc;
+$break: 400px;
+
+.notFound {
+  .face {
+    width: 300px;
+    height: 300px;
+    border: 4px solid $dark;
+    border-radius: 10px;
+    background-color: $wh;
+    margin: 40px auto 0;
+    @media screen and (max-width: $break) {
+      margin: 20px auto 0;
+      transform: scale(0.8);
+    }
+    .band {
+      width: 350px;
+      height: 27px;
+      border: 4px solid $dark;
+      border-radius: 5px;
+      margin-left: -25px;
+      margin-top: 50px;
+      .red {
+        height: calc(100% / 3);
+        width: 100%;
+        background-color: $red;
+      }
+      .white {
+        height: calc(100% / 3);
+        width: 100%;
+        background-color: $wh;
+      }
+      .blue {
+        height: calc(100% / 3);
+        width: 100%;
+        background-color: $blue;
+      }
+    }
+  }
+  .eyes {
+    width: 128px;
+    margin: 40px auto 0;
+
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 30px;
+      height: 15px;
+      border: 7px solid $dark;
+      margin-right: 20px;
+      border-top-left-radius: 22px;
+      border-top-right-radius: 22px;
+      border-bottom: 0;
+    }
+
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 30px;
+      height: 15px;
+      border: 7px solid $dark;
+      margin-left: 20px;
+      border-top-left-radius: 22px;
+      border-top-right-radius: 22px;
+      border-bottom: 0;
+    }
+  }
+  .dimples {
+    width: 180px;
+    margin: 15px auto 0;
+
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 80px;
+      border-radius: 50%;
+      background-color: rgba($red, 0.4);
+    }
+
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-left: 80px;
+      border-radius: 50%;
+      background-color: rgba($red, 0.4);
+    }
+  }
+  .mouth {
+    width: 40px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: $dark;
+    margin: 25px auto 0;
+  }
+  .title {
+    font-weight: 800;
+    color: $dark;
+    text-align: center;
+    font-size: 2em;
+    padding-top: 20px;
+
+    @media screen and (max-width: $break) {
+      padding-left: 20px;
+      padding-right: 20px;
+      font-size: 2em;
+      padding-top: 10px;
+    }
+  }
+  .btn {
+    font-family: "Open Sans", serif;
+    font-weight: 400;
+    padding: 20px;
+    text-decoration: none;
+    border: none;
+    background-color: rgba($blue, 1);
+    color: white;
+    width: 280px;
+    text-align: center;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px auto 50px;
+    transition: all 0.2s linear;
+
+    @media screen and (max-width: $break) {
+      margin: 20px auto 50px;
+      width: 200px;
+    }
+
+    &:hover {
+      background-color: rgba($blue, 0.8);
+      transition: all 0.2s linear;
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+}
