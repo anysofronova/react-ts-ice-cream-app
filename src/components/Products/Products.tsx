@@ -5,7 +5,8 @@ import { Pagination } from "@mui/material";
 import Skeleton from "../UI/Skeleton";
 import Filters from "../Filters/Filters";
 
-const Products = () => {
+// @ts-ignore
+const Products = ({ searchValue }) => {
   const [items, setItems] = useState([] as any[]);
   const [pageCount, setPageCount] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +32,11 @@ const Products = () => {
 
   useEffect(() => {
     fetch(
-      `https://628e254ba339dfef87a86df6.mockapi.io/items?p=${pageCount}&l=6&sortBy=${sort}&filters=${category}`
+      `https://628e254ba339dfef87a86df6.mockapi.io/items?p=${pageCount}&l=6${
+        sort ? `&sortBy=${sort}` : ""
+      }${category ? `&filters=${category}` : ""}${
+        searchValue ? `&search=${searchValue.toUpperCase()}` : ""
+      }`
     )
       .then((r) => {
         setIsLoading(false);
@@ -39,7 +44,7 @@ const Products = () => {
       })
       .then((arr) => setItems(arr));
     window.scrollTo(0, 0);
-  }, [pageCount, sort, category]);
+  }, [pageCount, sort, category, searchValue]);
 
   return (
     <Fragment>
