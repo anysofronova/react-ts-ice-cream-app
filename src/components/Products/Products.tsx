@@ -1,35 +1,17 @@
 import Item from "./Item/Item";
 import styles from "./Products.module.scss";
-import { Fragment, SetStateAction, useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Pagination } from "@mui/material";
 import Skeleton from "../UI/Skeleton";
 import Filters from "../Filters/Filters";
+import { useAppSelector } from "../../hooks/redux";
 
-// @ts-ignore
-const Products = ({ searchValue }) => {
+const Products = () => {
   const [items, setItems] = useState([] as any[]);
   const [pageCount, setPageCount] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
-  const [category, setCategory] = useState("");
-  const changeCategory = (newCategory: SetStateAction<string>) => {
-    setCategory(newCategory === "All" ? "" : newCategory);
-  };
-  const [sort, setSort] = useState("");
-  const changeSort = (newSort: SetStateAction<string>) => {
-    // @ts-ignore
-    const value =
-      newSort === "aToZ"
-        ? "title"
-        : newSort === "zToA"
-        ? "title&order=desc"
-        : newSort === "up"
-        ? "iceCreamPrices"
-        : newSort === "down"
-        ? "iceCreamPrices&order=desc"
-        : "";
-    setSort(value);
-  };
-
+  const { sort, category } = useAppSelector((state) => state.filterSlice);
+  const searchValue = useAppSelector((state) => state.searchSlice.searchValue);
   useEffect(() => {
     fetch(
       `https://628e254ba339dfef87a86df6.mockapi.io/items?p=${pageCount}&l=6${
@@ -48,7 +30,7 @@ const Products = ({ searchValue }) => {
 
   return (
     <Fragment>
-      <Filters changeSort={changeSort} changeCategory={changeCategory} />
+      <Filters />
       <div className={styles.products}>
         {isLoading
           ? [...new Array(6)].map((_, i) => <Skeleton key={i} />)

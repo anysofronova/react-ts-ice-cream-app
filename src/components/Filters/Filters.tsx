@@ -3,12 +3,12 @@ import Sort from "./Sort/Sort";
 import styles from "./Filters.module.scss";
 
 // @ts-ignore
-const Filters = ({ changeSort, changeCategory }) => {
+const Filters = () => {
   // @ts-ignore
   return (
     <div className={styles.filters}>
-      <Categories changeCategory={changeCategory} />
-      <Sort changeSort={changeSort} />
+      <Categories />
+      <Sort />
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import React from "react";
 import Products from "../../components/Products/Products";
 
-const Home = (props: JSX.IntrinsicAttributes & { searchValue: any }) => {
-  return <Products {...props} />;
+const Home = () => {
+  return <Products />;
 };
 
 export default Home;

@@ -1,61 +1,50 @@
 import styles from "./Categories.module.scss";
-import { SetStateAction, useState } from "react";
 import cn from "classnames";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
+import { changeCategory } from "../../../store/slices/filterSlice";
 
 interface ICategories {
   title: string;
-  id: number;
 }
 
-// @ts-ignore
-const Categories = ({ changeCategory }) => {
+const Categories = () => {
   const categories: ICategories[] = [
     {
-      title: "All",
-      id: 0,
+      title: "",
     },
     {
       title: "Gelato",
-      id: 1,
     },
     {
       title: "Sorbet",
-      id: 2,
     },
     {
       title: "Sherbet",
-      id: 3,
     },
     {
       title: "Frozen Yogurt",
-      id: 4,
     },
     {
       title: "Sugar Free",
-      id: 5,
     },
     {
       title: "Vegan",
-      id: 6,
     },
   ];
-  const [category, setCategory] = useState(0);
-  const onChangeCategory = (id: SetStateAction<number>, title: string) => {
-    setCategory(id);
-    changeCategory(title.replace(" ", "%20"));
-  };
+  const category = useAppSelector((state) => state.filterSlice.category);
+  const dispatch = useAppDispatch();
   return (
     <div className={styles.categories}>
-      {categories.map((i) => (
+      {categories.map((i, idx) => (
         <li
-          key={i.id}
-          onClick={() => onChangeCategory(i.id, i.title)}
+          key={idx}
+          onClick={() => dispatch(changeCategory(i.title))}
           className={cn(
             styles.category,
-            category === i.id ? styles.active : null
+            category === i.title ? styles.active : null
           )}
         >
-          {i.title}
+          {i.title || "All"}
         </li>
       ))}
     </div>
