@@ -3,9 +3,12 @@ import { BsSearch } from "react-icons/bs";
 import styles from "./SearchPanel.module.scss";
 import { AiOutlineClose } from "react-icons/ai";
 import React from "react";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
+import { searchNewValue } from "../../../store/slices/searchSlice";
 
-// @ts-ignore
-const SearchPanel = ({ searchValue, setSearchValue }) => {
+const SearchPanel = () => {
+  const searchValue = useAppSelector((state) => state.searchSlice.searchValue);
+  const dispatch = useAppDispatch();
   return (
     <div className={styles.searchPanel}>
       <BsSearch />
@@ -14,9 +17,11 @@ const SearchPanel = ({ searchValue, setSearchValue }) => {
         placeholder="Search an ice-cream..."
         className={styles.input}
         value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
+        onChange={(e) => dispatch(searchNewValue(e.target.value))}
       />
-      {searchValue && <AiOutlineClose onClick={() => setSearchValue("")} />}
+      {searchValue && (
+        <AiOutlineClose onClick={() => dispatch(searchNewValue(""))} />
+      )}
     </div>
   );
 };
