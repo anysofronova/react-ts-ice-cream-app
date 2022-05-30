@@ -4,8 +4,14 @@ import { BsTrash } from "react-icons/bs";
 
 import styles from "./Cart.module.scss";
 import CartItem from "../../components/CartItem/CartItem";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { clearCart } from "../../store/slices/cartSlice";
+import EmptyCart from "../../components/EmptyCart/EmptyCart";
 
 const Cart = () => {
+  const { cartList } = useAppSelector((state) => state.cartSlice);
+  const { totalPrice, totalCount } = useAppSelector((state) => state.cartSlice);
+  const dispatch = useAppDispatch();
   return (
     <div className={styles.cart}>
       <div className={styles.top}>
@@ -14,46 +20,29 @@ const Cart = () => {
           Cart
         </div>
         <div className={styles.clear}>
-          <button>
+          <button onClick={() => dispatch(clearCart())}>
             <BsTrash />
             Clear Cart
           </button>
         </div>
       </div>
-
-      <CartItem
-        img={
-          "https://i.ibb.co/XYgMSnW/F0-CDBFF0-5-A02-470-C-A824-B3-A8757-D75-CE.jpg"
-        }
-        title={"MANGO SORBET"}
-        count={2}
-        price={2.3}
-      />
-      <CartItem
-        img={
-          "https://i.ibb.co/XYgMSnW/F0-CDBFF0-5-A02-470-C-A824-B3-A8757-D75-CE.jpg"
-        }
-        title={"MANGO SORBET"}
-        count={2}
-        price={2.3}
-      />
-      <CartItem
-        img={
-          "https://i.ibb.co/XYgMSnW/F0-CDBFF0-5-A02-470-C-A824-B3-A8757-D75-CE.jpg"
-        }
-        title={"MANGO SORBET"}
-        count={2}
-        price={2.3}
-      />
-      <CartItem
-        img={
-          "https://i.ibb.co/XYgMSnW/F0-CDBFF0-5-A02-470-C-A824-B3-A8757-D75-CE.jpg"
-        }
-        title={"MANGO SORBET"}
-        count={2}
-        price={2.3}
-      />
-      <div className={styles.total}>Total: 7$</div>
+      {cartList.length ? (
+        cartList.map((item) => (
+          <CartItem
+            imgUrl={item.imgUrl}
+            title={item.title}
+            count={item.count}
+            finalPrice={item.finalPrice}
+            key={item.id}
+            id={item.id}
+          />
+        ))
+      ) : (
+        <EmptyCart />
+      )}
+      <div className={styles.total}>
+        Total: {totalPrice}$ ({totalCount})
+      </div>
       <div className={styles.bottom}>
         <button className={styles.back}>Back</button>
         <button className={styles.buy}>Buy</button>
