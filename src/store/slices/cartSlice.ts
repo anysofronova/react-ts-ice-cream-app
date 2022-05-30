@@ -31,6 +31,7 @@ export const cartSlice = createSlice({
       itemIndex >= 0
         ? (state.cartList[itemIndex].count += 1)
         : state.cartList.push({ ...action.payload });
+      cartSlice.caseReducers.calculateCountAndPrice(state);
     },
     minusItem: (state, action: PayloadAction<number>) => {
       const itemIndex = state.cartList.findIndex(
@@ -39,6 +40,14 @@ export const cartSlice = createSlice({
       state.cartList[itemIndex].count > 1
         ? (state.cartList[itemIndex].count -= 1)
         : state.cartList.splice(itemIndex, 1);
+      cartSlice.caseReducers.calculateCountAndPrice(state);
+    },
+    calculateCountAndPrice: (state) => {
+      state.totalCount = state.cartList.length;
+      state.totalPrice = state.cartList.reduce(
+        (sum, item) => sum + item.finalPrice,
+        0
+      );
     },
   },
 });
