@@ -38,8 +38,9 @@ const Products = () => {
               <Item
                 price={i.iceCreamPrices}
                 title={i.title}
-                photo={i.imgUrl}
+                imgUrl={i.imgUrl}
                 key={i.id}
+                id={i.id}
               />
             ))}
       </div>

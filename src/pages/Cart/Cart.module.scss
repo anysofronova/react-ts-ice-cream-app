@@ -33,3 +33,26 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .cart {
+    @apply px-16;
+    .bottom {
+      button {
+        @apply px-10;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cart {
+    @apply px-8;
+    .bottom {
+      @apply px-0;
+      button {
+        @apply px-8;
+      }
+    }
+  }
+}

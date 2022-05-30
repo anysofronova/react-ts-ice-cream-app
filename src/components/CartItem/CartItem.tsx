@@ -6,33 +6,41 @@ import {
   AiOutlineMinusCircle,
   AiOutlinePlusCircle,
 } from "react-icons/ai";
+import { useAppDispatch } from "../../hooks/redux";
+import { addItem, minusItem, deleteItem } from "../../store/slices/cartSlice";
 
 interface ICartItem {
-  img?: string;
+  imgUrl?: string;
   title: string;
   count: number;
-  price: number;
+  finalPrice: number;
+  id: number;
 }
 
-const CartItem = ({ img, title, count, price }: ICartItem) => {
+const CartItem = ({ imgUrl, title, count, finalPrice, id }: ICartItem) => {
+  const dispatch = useAppDispatch();
   return (
     <div className={styles.cartItem}>
       <div className={styles.img}>
-        <img src={img} alt="ice-cream" />
+        <img src={imgUrl} alt="ice-cream" />
       </div>
       <div className={styles.title}>{title}</div>
       <div className={styles.count}>
-        <button>
-          <AiOutlinePlusCircle />
-        </button>
-        {count}
-        <button>
+        <button onClick={() => dispatch(minusItem(id))}>
           <AiOutlineMinusCircle />
         </button>
+        {count}
+        <button
+          onClick={() =>
+            dispatch(addItem({ id, title, imgUrl, finalPrice, count }))
+          }
+        >
+          <AiOutlinePlusCircle />
+        </button>
       </div>
-      <div className={styles.price}>{price}$</div>
+      <div className={styles.price}>{count * finalPrice}$</div>
       <div className={styles.delete}>
-        <button>
+        <button onClick={() => dispatch(deleteItem(id))}>
           <AiOutlineClose />
         </button>
       </div>

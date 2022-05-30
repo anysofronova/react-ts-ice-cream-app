@@ -3,26 +3,37 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { useState } from "react";
 import placeholder from "../../../assets/imgPlaceholder.jpeg";
 import cn from "classnames";
+import { useAppDispatch } from "../../../hooks/redux";
+import { addItem } from "../../../store/slices/cartSlice";
 
-const Item = ({
-  title,
-  price,
-  photo,
-}: {
-  title: string | null;
+interface IItem {
+  title: string;
   price: number[];
-  photo: string | undefined;
-}) => {
+  imgUrl: string | undefined;
+  id: number;
+}
+
+const Item = ({ title, price, imgUrl, id }: IItem) => {
   const [iceCreamCount, setIceCreamCount] = useState(0);
   const [container, setContainer] = useState(0);
   const [ballsCount, setBallsCount] = useState(0);
   const sizes: string[] = ["1b.", "2b.", "3b."];
   const containerPrice = [0.47, 0.22];
+  const finalPrice = +(price[ballsCount] + containerPrice[container]).toFixed(
+    2
+  );
+  const dispatch = useAppDispatch();
+  const onButton = () => {
+    setIceCreamCount(iceCreamCount + 1);
+    const count = 1;
+    dispatch(addItem({ id, title, imgUrl, finalPrice, count }));
+  };
+
   return (
     <div className={styles.item}>
       <div>
         <img
-          src={photo || placeholder}
+          src={imgUrl || placeholder}
           alt="ice-Cream"
           className={styles.img}
         />
@@ -57,10 +68,8 @@ const Item = ({
           </ul>
         </div>
         <div className={styles.buying}>
-          <div className={styles.price}>
-            {(price[ballsCount] + containerPrice[container]).toFixed(2)}$
-          </div>
-          <button onClick={() => setIceCreamCount(iceCreamCount + 1)}>
+          <div className={styles.price}>{finalPrice}$</div>
+          <button onClick={() => onButton()}>
             <AiOutlinePlus /> Add
             <span>{iceCreamCount}</span>
           </button>
