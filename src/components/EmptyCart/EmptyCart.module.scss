@@ -1,0 +1,23 @@
+.empty {
+  @apply text-center font-normal text-3xl pt-8 flex flex-col justify-center items-center;
+  img {
+    @apply w-1/2 mt-2;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .empty {
+    @apply pt-2;
+    img {
+      @apply w-3/4;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .empty {
+    img {
+      @apply w-full;
+    }
+  }
+}
