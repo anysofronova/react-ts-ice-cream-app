@@ -25,3 +25,9 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .cartItem {
+    grid-template-columns: 2fr 3fr 1fr 1fr 1fr;
+  }
+}

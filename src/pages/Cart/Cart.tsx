@@ -1,6 +1,7 @@
 import React from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 import styles from "./Cart.module.scss";
 import CartItem from "../../components/CartItem/CartItem";
@@ -45,8 +46,10 @@ const Cart = () => {
         Total: {totalPrice}$ ({totalCount})
       </div>
       <div className={styles.bottom}>
-        <button className={styles.back}>Back</button>
-        <button className={styles.buy}>Buy</button>
+        <Link to={"/"} className={styles.back}>
+          Back
+        </Link>
+        {totalCount !== 0 && <button className={styles.buy}>Buy</button>}
       </div>
     </div>
   );
