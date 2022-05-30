@@ -42,6 +42,12 @@ export const cartSlice = createSlice({
         : state.cartList.splice(itemIndex, 1);
       cartSlice.caseReducers.calculateCountAndPrice(state);
     },
+    deleteItem: (state, action: PayloadAction<number>) => {
+      state.cartList.filter((item) => item.id !== action.payload);
+    },
+    clearCart: (state) => {
+      state.cartList = [];
+    },
     calculateCountAndPrice: (state) => {
       state.totalCount = state.cartList.length;
       state.totalPrice = state.cartList.reduce(
@@ -52,5 +58,5 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addItem, minusItem } = cartSlice.actions;
+export const { addItem, minusItem, deleteItem, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
