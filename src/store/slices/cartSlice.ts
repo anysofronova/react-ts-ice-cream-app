@@ -43,17 +43,21 @@ export const cartSlice = createSlice({
       cartSlice.caseReducers.calculateCountAndPrice(state);
     },
     deleteItem: (state, action: PayloadAction<number>) => {
-      state.cartList.filter((item) => item.id !== action.payload);
+      state.cartList = state.cartList.filter(
+        (item) => item.id !== action.payload
+      );
     },
     clearCart: (state) => {
       state.cartList = [];
     },
     calculateCountAndPrice: (state) => {
-      state.totalCount = state.cartList.length;
-      state.totalPrice = state.cartList.reduce(
-        (sum, item) => sum + item.finalPrice,
+      state.totalCount = state.cartList.reduce(
+        (count, item) => count + item.count,
         0
       );
+      state.totalPrice = +state.cartList
+        .reduce((sum, item) => sum + item.finalPrice * item.count, 0)
+        .toFixed(2);
     },
   },
 });
