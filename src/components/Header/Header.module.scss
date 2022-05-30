@@ -1,5 +1,5 @@
 .header {
-  @apply flex gap-4 border-b px-8 py-3 items-center justify-between;
+  @apply grid grid-cols-3 gap-4 border-b px-8 py-3 items-center justify-items-end;
 }
 
 @media screen and (max-width: 1280px) {
@@ -14,7 +14,7 @@
 }
 @media screen and (max-width: 700px) {
   .header {
-    @apply grid px-8 gap-4;
+    @apply px-8 gap-4;
     grid-template-areas: "logo cart" "searchPanel searchPanel";
   }
   .logo {

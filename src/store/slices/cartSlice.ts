@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface ItemState {
   id: number;
+  parameters: number[];
   title: string;
   imgUrl: string | undefined;
   finalPrice: number;
@@ -26,29 +27,40 @@ export const cartSlice = createSlice({
   reducers: {
     addItem: (state, action: PayloadAction<ItemState>) => {
       const itemIndex = state.cartList.findIndex(
-        (item) => item.id === action.payload.id
+        (item) =>
+          item.id === action.payload.id &&
+          item.parameters.join("") === action.payload.parameters.join("")
       );
       itemIndex >= 0
         ? (state.cartList[itemIndex].count += 1)
         : state.cartList.push({ ...action.payload });
       cartSlice.caseReducers.calculateCountAndPrice(state);
     },
-    minusItem: (state, action: PayloadAction<number>) => {
+    minusItem: (state, action: PayloadAction<ItemState>) => {
       const itemIndex = state.cartList.findIndex(
-        (item) => item.id === action.payload
+        (item) =>
+          item.id === action.payload.id &&
+          item.parameters.join("") === action.payload.parameters.join("")
       );
       state.cartList[itemIndex].count > 1
         ? (state.cartList[itemIndex].count -= 1)
         : state.cartList.splice(itemIndex, 1);
       cartSlice.caseReducers.calculateCountAndPrice(state);
     },
-    deleteItem: (state, action: PayloadAction<number>) => {
+    deleteItem: (state, action: PayloadAction<ItemState>) => {
       state.cartList = state.cartList.filter(
-        (item) => item.id !== action.payload
+        (item) =>
+          !(
+            item.id === action.payload.id &&
+            item.parameters.join("") === action.payload.parameters.join("")
+          )
       );
+      cartSlice.caseReducers.calculateCountAndPrice(state);
     },
     clearCart: (state) => {
       state.cartList = [];
+      state.totalPrice = 0;
+      state.totalCount = 0;
     },
     calculateCountAndPrice: (state) => {
       state.totalCount = state.cartList.reduce(
