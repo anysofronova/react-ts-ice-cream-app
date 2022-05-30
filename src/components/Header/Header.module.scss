@@ -1,5 +1,5 @@
 .header {
-  @apply flex gap-4 border-b px-8 py-3 items-center justify-between;
+  @apply grid grid-cols-3 gap-4 border-b px-8 py-3 items-center justify-items-end;
 }
 
 @media screen and (max-width: 1280px) {
@@ -14,21 +14,25 @@
 }
 @media screen and (max-width: 700px) {
   .header {
-    @apply grid px-8 gap-4;
+    @apply grid-cols-2  px-8 gap-4;
     grid-template-areas: "logo cart" "searchPanel searchPanel";
   }
   .logo {
     grid-area: logo;
+    justify-self: start;
   }
   .searchPanel {
     grid-area: searchPanel;
+    justify-self: start;
   }
   .cart {
     grid-area: cart;
+    justify-self: end;
   }
 }
 @media screen and (max-width: 480px) {
   .header {
-    @apply px-4;
+    @apply grid-cols-3  px-4;
+    grid-template-areas: "logo logo cart" "searchPanel searchPanel searchPanel";
   }
 }

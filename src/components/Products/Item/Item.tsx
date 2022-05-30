@@ -14,7 +14,6 @@ interface IItem {
 }
 
 const Item = ({ title, price, imgUrl, id }: IItem) => {
-  const [iceCreamCount, setIceCreamCount] = useState(0);
   const [container, setContainer] = useState(0);
   const [ballsCount, setBallsCount] = useState(0);
   const sizes: string[] = ["1b.", "2b.", "3b."];
@@ -24,9 +23,9 @@ const Item = ({ title, price, imgUrl, id }: IItem) => {
   );
   const dispatch = useAppDispatch();
   const onButton = () => {
-    setIceCreamCount(iceCreamCount + 1);
     const count = 1;
-    dispatch(addItem({ id, title, imgUrl, finalPrice, count }));
+    const parameters = [container, ballsCount];
+    dispatch(addItem({ id, title, imgUrl, finalPrice, count, parameters }));
   };
 
   return (
@@ -71,7 +70,6 @@ const Item = ({ title, price, imgUrl, id }: IItem) => {
           <div className={styles.price}>{finalPrice}$</div>
           <button onClick={() => onButton()}>
             <AiOutlinePlus /> Add
-            <span>{iceCreamCount}</span>
           </button>
         </div>
       </div>

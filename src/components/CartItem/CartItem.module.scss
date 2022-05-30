@@ -1,6 +1,15 @@
 .cartItem {
   @apply grid gap-2 items-center justify-items-center border-b py-3;
   grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  .titles {
+    @apply flex flex-col gap-1 justify-center pl-3 w-full;
+    .title {
+      @apply text-left;
+    }
+    .subtitle {
+      @apply text-slate-600 text-sm;
+    }
+  }
   .count {
     @apply flex justify-center items-center;
     button {
