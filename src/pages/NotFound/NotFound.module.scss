@@ -101,22 +101,18 @@ $break: 400px;
     margin: 25px auto 0;
   }
   .title {
-    font-weight: 800;
+    font-weight: 600;
     color: $dark;
     text-align: center;
     font-size: 2em;
     padding-top: 20px;
 
     @media screen and (max-width: $break) {
-      padding-left: 20px;
-      padding-right: 20px;
-      font-size: 2em;
-      padding-top: 10px;
+      padding: 10px 0;
+      font-size: 1.5em;
     }
   }
   .btn {
-    font-family: "Open Sans", serif;
-    font-weight: 400;
     padding: 20px;
     text-decoration: none;
     border: none;
@@ -131,8 +127,10 @@ $break: 400px;
     transition: all 0.2s linear;
 
     @media screen and (max-width: $break) {
-      margin: 20px auto 50px;
+      margin: 10px auto;
+      padding: 10px;
       width: 200px;
+      font-size: 1.1em;
     }
 
     &:hover {

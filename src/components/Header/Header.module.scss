@@ -32,7 +32,7 @@
 }
 @media screen and (max-width: 480px) {
   .header {
-    @apply grid-cols-3  px-4;
+    @apply grid-cols-3 gap-x-0 px-4;
     grid-template-areas: "logo logo cart" "searchPanel searchPanel searchPanel";
   }
 }
