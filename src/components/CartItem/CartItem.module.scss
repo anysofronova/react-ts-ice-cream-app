@@ -2,7 +2,7 @@
   @apply grid gap-2 items-center justify-items-center border-b py-3;
   grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
   .titles {
-    @apply flex flex-col gap-1 justify-center pl-3 w-full;
+    @apply flex flex-col gap-1 justify-center pl-3 w-full text-base;
     .title {
       @apply text-left;
     }
@@ -28,6 +28,13 @@
 
 @media screen and (max-width: 480px) {
   .cartItem {
-    grid-template-columns: 2fr 3fr 1fr 1fr 1fr;
+    @apply text-sm;
+    grid-template-columns: 20vw 25vw 20vw 10vw 1fr;
+    .titles {
+      @apply pl-0;
+      .subtitle {
+        @apply text-xs;
+      }
+    }
   }
 }

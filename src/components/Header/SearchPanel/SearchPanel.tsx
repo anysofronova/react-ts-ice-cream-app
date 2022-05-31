@@ -16,7 +16,7 @@ const SearchPanel = () => {
         type="text"
         placeholder="Search an ice-cream..."
         className={styles.input}
-        value={searchValue}
+        value={searchValue || ""}
         onChange={(e) => dispatch(searchNewValue(e.target.value))}
       />
       {searchValue && (

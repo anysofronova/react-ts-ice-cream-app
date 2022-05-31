@@ -4,6 +4,9 @@
 
 .products {
   @apply px-8 py-3 grid grid-cols-6 gap-3;
+  .error {
+    @apply col-span-3;
+  }
 }
 
 .pagination {

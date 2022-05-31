@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --desktop: 1280px;
-  --laptop: 1024px;
-  --table: 768px;
-  --mobile: 480px;
-}
 * {
   @apply font-sans font-light;
 }
