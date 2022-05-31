@@ -5,20 +5,14 @@ import placeholder from "../../../assets/imgPlaceholder.jpeg";
 import cn from "classnames";
 import { useAppDispatch } from "../../../hooks/redux";
 import { addItem } from "../../../store/slices/cartSlice";
+import { IProduct } from "../../../models/IProduct";
 
-interface IItem {
-  title: string;
-  price: number[];
-  imgUrl: string | undefined;
-  id: number;
-}
-
-const Item = ({ title, price, imgUrl, id }: IItem) => {
+const Item = ({ title, prices, imgUrl, id }: IProduct) => {
   const [container, setContainer] = useState(0);
   const [ballsCount, setBallsCount] = useState(0);
   const sizes: string[] = ["1b.", "2b.", "3b."];
   const containerPrice = [0.47, 0.22];
-  const finalPrice = +(price[ballsCount] + containerPrice[container]).toFixed(
+  const finalPrice = +(prices[ballsCount] + containerPrice[container]).toFixed(
     2
   );
   const dispatch = useAppDispatch();

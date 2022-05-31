@@ -1,13 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface FilterState {
-  category: string;
-  sort: string;
+  category: string | undefined;
+  sort: string | undefined;
+  order: string | undefined;
 }
 
 const initialState: FilterState = {
-  category: "",
-  sort: "",
+  category: undefined,
+  sort: undefined,
+  order: undefined,
 };
 
 export const filterSlice = createSlice({
@@ -17,8 +19,9 @@ export const filterSlice = createSlice({
     changeCategory: (state, action: PayloadAction<string>) => {
       state.category = action.payload;
     },
-    changeSort: (state, action: PayloadAction<string>) => {
-      state.sort = action.payload;
+    changeSort: (state, action: PayloadAction<string[]>) => {
+      state.sort = action.payload[0];
+      state.order = action.payload[1];
     },
   },
 });
