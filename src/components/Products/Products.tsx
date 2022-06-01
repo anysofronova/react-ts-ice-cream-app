@@ -1,6 +1,6 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Pagination } from "@mui/material";
-import { useAppSelector } from "../../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 
 import styles from "./Products.module.scss";
 import { productsApi } from "../../services/ProductsService";
@@ -8,20 +8,22 @@ import Item from "./Item/Item";
 import Skeleton from "../UI/Skeleton";
 import Filters from "../Filters/Filters";
 import NotFound from "../../pages/NotFound/NotFound";
+import { setCurrentPage } from "../../store/slices/mainSlice";
 
 const Products = () => {
-  const [pageCount, setPageCount] = useState(1);
   const { sort, category, order } = useAppSelector(
     (state) => state.filterSlice
   );
+  const { currentPage } = useAppSelector((state) => state.mainSlice);
   const searchValue = useAppSelector((state) => state.searchSlice.searchValue);
+  const dispatch = useAppDispatch();
   const {
     data: items,
     isLoading,
     error,
   } = productsApi.useFetchAllProductsQuery({
     order,
-    page: pageCount,
+    page: currentPage,
     sortBy: sort,
     filters: category,
     search: searchValue,
@@ -54,7 +56,7 @@ const Products = () => {
         {!error && (
           <Pagination
             count={3}
-            onChange={(_, num) => setPageCount(num)}
+            onChange={(_, num) => dispatch(setCurrentPage(num))}
             variant="outlined"
             color="primary"
           />
