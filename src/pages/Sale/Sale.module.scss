@@ -1,0 +1,12 @@
+.sale {
+  @apply grid grid-cols-2 px-8 justify-items-center mt-3 gap-3;
+  .error {
+    @apply col-span-2;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sale {
+    @apply grid-cols-1 px-4;
+  }
+}
