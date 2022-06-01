@@ -56,6 +56,7 @@ const Products = () => {
         {!error && (
           <Pagination
             count={3}
+            page={currentPage}
             onChange={(_, num) => dispatch(setCurrentPage(num))}
             variant="outlined"
             color="primary"
