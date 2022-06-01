@@ -1,0 +1,25 @@
+.about {
+  @apply flex flex-col gap-2 px-16;
+  h2 {
+    @apply font-medium text-xl py-5;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .about {
+    @apply px-16;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about {
+    @apply px-8;
+  }
+}
+@media screen and (max-width: 480px) {
+  .about {
+    @apply px-4;
+    h2 {
+      @apply text-base py-2;
+    }
+  }
+}
