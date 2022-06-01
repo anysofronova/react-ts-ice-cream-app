@@ -1,4 +1,5 @@
 import React from "react";
+import { useAppDispatch } from "../../hooks/redux";
 
 import styles from "./CartItem.module.scss";
 import {
@@ -6,8 +7,8 @@ import {
   AiOutlineMinusCircle,
   AiOutlinePlusCircle,
 } from "react-icons/ai";
-import { useAppDispatch } from "../../hooks/redux";
 import { addItem, minusItem, deleteItem } from "../../store/slices/cartSlice";
+import placeholder from "../../assets/imgPlaceholder.jpeg";
 
 interface ICartItem {
   imgUrl?: string;
@@ -33,7 +34,7 @@ const CartItem = ({
   return (
     <div className={styles.cartItem}>
       <div className={styles.img}>
-        <img src={imgUrl} alt="ice-cream" />
+        <img src={imgUrl || placeholder} alt="ice-cream" />
       </div>
       <div className={styles.titles}>
         <div className={styles.title}>{title}</div>
