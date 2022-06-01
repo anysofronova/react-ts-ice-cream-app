@@ -1,0 +1,26 @@
+.nav {
+  @apply flex justify-evenly px-8  border-b bg-slate-100;
+  .item {
+    @apply transition-all duration-200 px-10 py-4;
+    &:hover {
+      @apply shadow-lg shadow-slate-300;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .nav {
+    @apply px-4;
+    .item {
+      @apply px-4;
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .nav {
+    @apply justify-between;
+    .item {
+      @apply px-2 text-sm;
+    }
+  }
+}

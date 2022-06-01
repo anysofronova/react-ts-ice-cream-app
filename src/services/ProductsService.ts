@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { IProduct } from "../models/IProduct";
 import { IResponse } from "../models/IResponse";
+import { ISale } from "../models/ISale";
 
 export const productsApi = createApi({
   reducerPath: "productsApi",
@@ -21,6 +22,13 @@ export const productsApi = createApi({
             order,
             search,
           },
+        };
+      },
+    }),
+    fetchSale: builder.query<ISale[], string>({
+      query: () => {
+        return {
+          url: "sale/",
         };
       },
     }),
