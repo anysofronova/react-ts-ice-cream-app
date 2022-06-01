@@ -1,0 +1,28 @@
+.contact {
+  @apply flex flex-col gap-2 px-16;
+  h2 {
+    @apply font-medium text-xl py-5;
+    @media screen and (max-width: 480px) {
+      @apply text-base py-2;
+    }
+  }
+  .main {
+    @apply flex gap-3;
+    .info {
+      @apply flex flex-col justify-around px-2 py-16;
+      span,
+      a {
+        @apply font-medium;
+      }
+    }
+  }
+  @media screen and (max-width: 1280px) {
+    @apply px-16;
+  }
+  @media screen and (max-width: 768px) {
+    @apply px-8;
+  }
+  @media screen and (max-width: 480px) {
+    @apply px-4;
+  }
+}
