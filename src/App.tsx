@@ -4,6 +4,8 @@ import Header from "./components/Header/Header";
 import NotFound from "./pages/NotFound/NotFound";
 import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
+import Sale from "./pages/Sale/Sale";
+import About from "./pages/About/About";
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/cart" element={<Cart />} />
+        <Route path="/sale" element={<Sale />} />
+        <Route path="/about" element={<About />} />
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
