@@ -1,5 +1,8 @@
 .filters {
-  @apply flex justify-between items-center px-8 py-3;
+  @apply flex flex-col gap-3 px-8 py-4;
+  .sort {
+    @apply self-end;
+  }
 }
 @media screen and (max-width: 1280px) {
   .filters {
