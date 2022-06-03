@@ -38,7 +38,9 @@ const Categories = () => {
       {categories.map((i, idx) => (
         <li
           key={idx}
-          onClick={() => dispatch(changeCategory(i.title))}
+          onClick={() =>
+            dispatch(changeCategory(i.title === "" ? undefined : i.title))
+          }
           className={cn(
             styles.category,
             category === i.title || (category === undefined && i.title === "")
