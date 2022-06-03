@@ -29,9 +29,9 @@
 @media screen and (max-width: 480px) {
   .cartItem {
     @apply text-sm;
-    grid-template-columns: 20vw 25vw 20vw 10vw 1fr;
+    grid-template-columns: 15vw 25vw 20vw 10vw 1fr;
     .titles {
-      @apply pl-0;
+      @apply pl-0 text-sm;
       .subtitle {
         @apply text-xs;
       }
