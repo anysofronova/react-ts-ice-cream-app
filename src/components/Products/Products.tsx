@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import { Pagination } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 
 import styles from "./Products.module.scss";
@@ -9,26 +8,39 @@ import Skeleton from "../UI/Skeleton";
 import Filters from "../Filters/Filters";
 import NotFound from "../../pages/NotFound/NotFound";
 import { setCurrentPage } from "../../store/slices/mainSlice";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 const Products = () => {
-  const { sort, category, order } = useAppSelector(
-    (state) => state.filterSlice
-  );
-  const { currentPage } = useAppSelector((state) => state.mainSlice);
-  const searchValue = useAppSelector((state) => state.searchSlice.searchValue);
+  const {
+    sort: sortBy,
+    category: filters,
+    order,
+  } = useAppSelector((state) => state.filterSlice);
+  const { currentPage: page } = useAppSelector((state) => state.mainSlice);
+  const search = useAppSelector((state) => state.searchSlice.searchValue);
   const dispatch = useAppDispatch();
+  const onChangePage = (page: number) => {
+    dispatch(setCurrentPage(page));
+    window.scrollTo(0, 0);
+  };
   const {
     data: items,
     isLoading,
     error,
   } = productsApi.useFetchAllProductsQuery({
     order,
-    page: currentPage,
-    sortBy: sort,
-    filters: category,
-    search: searchValue,
+    page,
+    sortBy,
+    filters,
+    search,
   });
-
+  const { data } = productsApi.useFetchAllProductsQuery({
+    order,
+    page: page + 1,
+    sortBy,
+    filters,
+    search,
+  });
   return (
     <Fragment>
       <Filters />
@@ -52,17 +64,21 @@ const Products = () => {
           ))
         )}
       </div>
-      <div className={styles.pagination}>
-        {!error && (
-          <Pagination
-            count={3}
-            page={currentPage}
-            onChange={(_, num) => dispatch(setCurrentPage(num))}
-            variant="outlined"
-            color="primary"
-          />
-        )}
-      </div>
+      {!error && (
+        <div className={styles.pagination}>
+          {page > 1 && (
+            <button onClick={() => onChangePage(page - 1)}>
+              <MdKeyboardArrowLeft />
+            </button>
+          )}
+          <span className={styles.page}>{page}</span>
+          {data && data.length > 0 && (
+            <button onClick={() => onChangePage(page + 1)}>
+              <MdKeyboardArrowRight />
+            </button>
+          )}
+        </div>
+      )}
     </Fragment>
   );
 };
