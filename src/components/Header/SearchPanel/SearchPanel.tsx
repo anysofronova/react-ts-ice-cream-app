@@ -11,7 +11,7 @@ const SearchPanel = () => {
   const dispatch = useAppDispatch();
   const inputRef = useRef<HTMLInputElement>(null);
   const onClear = () => {
-    dispatch(searchNewValue(""));
+    dispatch(searchNewValue(undefined));
     if (null !== inputRef.current) inputRef.current.focus();
   };
 
@@ -24,7 +24,7 @@ const SearchPanel = () => {
         placeholder="Search an ice-cream..."
         className={styles.input}
         value={searchValue || ""}
-        onChange={(e) => dispatch(searchNewValue(e.target.value))}
+        onChange={(e) => dispatch(searchNewValue(e.target.value || undefined))}
       />
       {searchValue && <AiOutlineClose onClick={() => onClear()} />}
     </div>

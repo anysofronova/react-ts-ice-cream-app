@@ -20,12 +20,14 @@ const Cart = () => {
           <AiOutlineShoppingCart />
           Cart
         </div>
-        <div className={styles.clear}>
-          <button onClick={() => dispatch(clearCart())}>
-            <BsTrash />
-            Clear Cart
-          </button>
-        </div>
+        {totalCount !== 0 && (
+          <div className={styles.clear}>
+            <button onClick={() => dispatch(clearCart())}>
+              <BsTrash />
+              Clear Cart
+            </button>
+          </div>
+        )}
       </div>
       {cartList.length ? (
         cartList.map((item) => (

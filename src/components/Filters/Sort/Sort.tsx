@@ -16,13 +16,13 @@ const Sort = () => {
           const sort = e.target.value.split(",");
           dispatch(changeSort([...sort]));
         }}
-        defaultValue={"_"}
+        defaultValue={"popularity,desc"}
         inputProps={{
           title: "title",
           id: "number",
         }}
       >
-        <option value={"_"}>Best-selling</option>
+        <option value={"popularity,desc"}>Best-selling</option>
         <option value={"title"}>A → Z</option>
         <option value={"title,desc"}>Z → A</option>
         <option value={"prices"}>Price: Low to High</option>

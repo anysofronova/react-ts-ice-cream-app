@@ -8,11 +8,12 @@
   }
 
   .main {
-    @apply grid grid-cols-2 gap-3;
+    @apply grid gap-3;
+    grid-template-columns: 2fr 3fr;
     .info {
       @apply px-4 m-auto;
       div {
-        @apply py-3;
+        @apply pb-3;
       }
       span,
       a {

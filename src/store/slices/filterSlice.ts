@@ -8,15 +8,15 @@ export interface FilterState {
 
 const initialState: FilterState = {
   category: undefined,
-  sort: undefined,
-  order: undefined,
+  sort: "popularity",
+  order: "desc",
 };
 
 export const filterSlice = createSlice({
   name: "filter",
   initialState,
   reducers: {
-    changeCategory: (state, action: PayloadAction<string>) => {
+    changeCategory: (state, action: PayloadAction<string | undefined>) => {
       state.category = action.payload;
     },
     changeSort: (state, action: PayloadAction<string[]>) => {

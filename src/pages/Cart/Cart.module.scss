@@ -19,14 +19,15 @@
   }
   .bottom {
     @apply flex justify-between items-center pt-3 px-3;
-    .back {
+    .back,
+    .buy {
       @apply border rounded-3xl px-16 py-2 py-1 text-lg font-normal text-slate-500 cursor-pointer;
       &:hover {
         @apply text-black;
       }
     }
-    button {
-      @apply border rounded-3xl px-16 py-2 py-1 text-lg font-normal cursor-pointer;
+    .buy {
+      @apply text-black;
       &:hover {
         @apply bg-slate-200;
       }
@@ -50,8 +51,9 @@
     @apply px-4;
     .bottom {
       @apply px-0;
-      button {
-        @apply px-8;
+      .back,
+      .buy {
+        @apply px-10;
       }
     }
   }
