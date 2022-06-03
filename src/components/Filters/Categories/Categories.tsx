@@ -41,7 +41,9 @@ const Categories = () => {
           onClick={() => dispatch(changeCategory(i.title))}
           className={cn(
             styles.category,
-            category === i.title ? styles.active : null
+            category === i.title || (category === undefined && i.title === "")
+              ? styles.active
+              : null
           )}
         >
           {i.title || "All"}

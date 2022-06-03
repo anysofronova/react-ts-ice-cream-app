@@ -5,8 +5,12 @@ import styles from "./Filters.module.scss";
 const Filters = () => {
   return (
     <div className={styles.filters}>
-      <Categories />
-      <Sort />
+      <div className={styles.categories}>
+        <Categories />
+      </div>
+      <div className={styles.sort}>
+        <Sort />
+      </div>
     </div>
   );
 };

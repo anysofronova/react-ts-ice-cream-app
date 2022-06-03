@@ -6,23 +6,49 @@
       @apply text-base py-2;
     }
   }
+
   .main {
-    @apply flex gap-3;
+    @apply grid grid-cols-2 gap-3;
     .info {
-      @apply flex flex-col justify-around px-2 py-16;
+      @apply px-4 m-auto;
+      div {
+        @apply py-3;
+      }
       span,
       a {
         @apply font-medium;
       }
     }
   }
-  @media screen and (max-width: 1280px) {
+}
+
+@media screen and (max-width: 1280px) {
+  .contact {
     @apply px-16;
   }
-  @media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 768px) {
+  .contact {
     @apply px-8;
+    .main {
+      @apply grid-cols-1;
+      .img {
+        @apply w-full h-2/3;
+        height: 20em;
+        img {
+          @apply object-cover w-full h-full;
+        }
+      }
+      .info {
+        @apply px-0;
+      }
+    }
   }
-  @media screen and (max-width: 480px) {
+}
+
+@media screen and (max-width: 480px) {
+  .contact {
     @apply px-4;
   }
 }
