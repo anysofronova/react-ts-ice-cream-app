@@ -4,6 +4,9 @@
     @apply col-span-3;
   }
 }
+.noResults {
+  @apply px-8;
+}
 
 .pagination {
   @apply px-8 py-3 flex justify-center gap-3;
@@ -16,17 +19,26 @@
   .products {
     @apply px-16 grid-cols-3 gap-3;
   }
+  .noResults {
+    @apply px-16;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .products {
     @apply px-8 grid-cols-2 gap-2;
   }
+  .noResults {
+    @apply px-8;
+  }
 }
 
 @media screen and (max-width: 480px) {
   .products {
     @apply grid-cols-1 px-4;
+  }
+  .noResults {
+    @apply px-4;
   }
   svg {
     margin: auto;

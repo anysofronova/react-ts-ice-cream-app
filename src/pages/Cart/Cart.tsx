@@ -4,10 +4,11 @@ import { BsTrash } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 import styles from "./Cart.module.scss";
-import CartItem from "../../components/CartItem/CartItem";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { clearCart } from "../../store/slices/cartSlice";
-import EmptyCart from "../../components/EmptyCart/EmptyCart";
+import placeholder from "../../assets/emptyCart.svg";
+import CartItem from "../../components/CartItem/CartItem";
+import NoResultsImg from "../../components/NoResultsImg/NoResultsImg";
 
 const Cart = () => {
   const { cartList } = useAppSelector((state) => state.cartSlice);
@@ -42,7 +43,7 @@ const Cart = () => {
           />
         ))
       ) : (
-        <EmptyCart />
+        <NoResultsImg imgUrl={placeholder} title={"Your Cart is empty!"} />
       )}
       <div className={styles.total}>
         Total: {totalPrice}$ ({totalCount})
