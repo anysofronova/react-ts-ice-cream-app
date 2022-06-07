@@ -3,7 +3,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { useState } from "react";
 import placeholder from "../../../assets/imgPlaceholder.jpeg";
 import cn from "classnames";
-import { useAppDispatch } from "../../../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { addItem } from "../../../store/slices/cartSlice";
 import { IProduct } from "../../../models/IProduct";
 
@@ -21,7 +21,10 @@ const Item = ({ title, prices, imgUrl, id }: IProduct) => {
     const parameters = [container, ballsCount];
     dispatch(addItem({ id, title, imgUrl, finalPrice, count, parameters }));
   };
-
+  const { cartList } = useAppSelector((state) => state.cartSlice);
+  const count = cartList
+    .filter((i) => i.id === id)
+    .reduce((count, i) => count + i.count, 0);
   return (
     <div className={styles.item}>
       <div>
@@ -64,6 +67,7 @@ const Item = ({ title, prices, imgUrl, id }: IProduct) => {
           <div className={styles.price}>{finalPrice}$</div>
           <button onClick={() => onButton()}>
             <AiOutlinePlus /> Add
+            <span>{count}</span>
           </button>
         </div>
       </div>
