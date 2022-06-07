@@ -27,7 +27,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: [productsApi.reducerPath],
+  blacklist: [productsApi.reducerPath, "searchSlice"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -39,7 +39,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(productsApi.middleware),
 });
 
 export const persistor = persistStore(store);
