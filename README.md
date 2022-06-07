@@ -1,4 +1,4 @@
-<h1>Simple Ice-Cream Store App made using React and mockAPI.</h1>
+<h1>Ice-Cream Store App made using React and mockAPI.</h1>
 
 <div>
 <img src="https://img.shields.io/badge/react-%23323330.svg?style=for-the-badge&logo=react&logoColor=white" alt="react">
