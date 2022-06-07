@@ -1,16 +1,8 @@
 .header {
-  @apply grid grid-cols-5 gap-4 border-b px-8 py-3 items-center justify-items-end;
-  grid-template-areas: "logo logo searchPanel searchPanel cart";
+  @apply grid  gap-4 border-b px-8 py-3 items-center justify-items-end;
+  grid-template-columns: 30vw 30vw 1fr;
   .logo {
-    grid-area: logo;
     justify-self: start;
-  }
-  .searchPanel {
-    grid-area: searchPanel;
-  }
-  .cart {
-    grid-area: cart;
-    justify-self: end;
   }
 }
 
@@ -26,8 +18,15 @@
 }
 @media screen and (max-width: 700px) {
   .header {
-    @apply grid-cols-2  px-8 gap-4;
+    @apply grid-cols-2 px-8 gap-4;
     grid-template-areas: "logo cart" "searchPanel searchPanel";
+  }
+  .logo {
+    grid-area: logo;
+    justify-self: start;
+  }
+  .cart {
+    grid-area: cart;
   }
   .searchPanel {
     grid-area: searchPanel;

@@ -9,6 +9,8 @@ import Filters from "../Filters/Filters";
 import NotFound from "../../pages/NotFound/NotFound";
 import { setCurrentPage } from "../../store/slices/mainSlice";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import NoResultsImg from "../NoResultsImg/NoResultsImg";
+import placeholder from "../../assets/noResults.svg";
 
 const Products = () => {
   const {
@@ -64,7 +66,13 @@ const Products = () => {
           ))
         )}
       </div>
-      {!error && (
+      <div className={styles.noResults}>
+        {(!items || items.length < 1) && (
+          <NoResultsImg imgUrl={placeholder} title={"No Results Found!"} />
+        )}
+      </div>
+
+      {!error && items && items.length > 0 && (
         <div className={styles.pagination}>
           {page > 1 && (
             <button onClick={() => onChangePage(page - 1)}>

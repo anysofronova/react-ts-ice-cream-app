@@ -38,3 +38,11 @@
     }
   }
 }
+@media screen and (max-width: 350px) {
+  .cartItem {
+    grid-template-columns: 40vw 2fr 1fr 1fr;
+    .img {
+      display: none;
+    }
+  }
+}
