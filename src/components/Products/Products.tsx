@@ -53,6 +53,10 @@ const Products = () => {
           <div className={styles.error}>
             <NotFound />
           </div>
+        ) : !items || items.length < 1 ? (
+          <div className={styles.noResults}>
+            <NoResultsImg imgUrl={placeholder} title={"No Results Found!"} />
+          </div>
         ) : (
           items &&
           items.map((i) => (
@@ -64,11 +68,6 @@ const Products = () => {
               id={i.id}
             />
           ))
-        )}
-      </div>
-      <div className={styles.noResults}>
-        {(!items || items.length < 1) && (
-          <NoResultsImg imgUrl={placeholder} title={"No Results Found!"} />
         )}
       </div>
 
