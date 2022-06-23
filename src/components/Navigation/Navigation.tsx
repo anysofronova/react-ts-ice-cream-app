@@ -15,7 +15,6 @@ const Navigation = () => {
     { id: 3, name: "Contact", link: "/contact" },
   ];
 
-  console.log("Перерисовка");
   return (
     <nav className={styles.nav}>
       {navigationList.map((i) => (
