@@ -2,23 +2,25 @@ import Logo from "./Logo/Logo";
 import SearchPanel from "./SearchPanel/SearchPanel";
 import styles from "./Header.module.scss";
 import CartBlock from "./CartBlock/CartBlock";
-import Navigation from "./Navigation/Navigation";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
+  const { pathname } = useLocation();
   return (
     <>
       <div className={styles.header}>
         <div className={styles.logo}>
           <Logo />
         </div>
-        <div className={styles.searchPanel}>
-          <SearchPanel />
-        </div>
+        {pathname !== "/cart" && (
+          <div className={styles.searchPanel}>
+            <SearchPanel />
+          </div>
+        )}
         <div className={styles.cart}>
           <CartBlock />
         </div>
       </div>
-      <Navigation />
     </>
   );
 };

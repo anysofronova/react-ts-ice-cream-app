@@ -7,11 +7,13 @@ import Cart from "./pages/Cart/Cart";
 import Sale from "./pages/Sale/Sale";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
+import Navigation from "./components/Navigation/Navigation";
 
 function App() {
   return (
     <div className="App">
       <Header />
+      <Navigation />
       <Routes>
         <Route path="/cart" element={<Cart />} />
         <Route path="/sale" element={<Sale />} />
