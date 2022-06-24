@@ -32,5 +32,15 @@ export const productsApi = createApi({
         };
       },
     }),
+    fetchOneProduct: builder.query<IProduct[], string>({
+      query: (id) => {
+        return {
+          url: "items/",
+          params: {
+            id,
+          },
+        };
+      },
+    }),
   }),
 });

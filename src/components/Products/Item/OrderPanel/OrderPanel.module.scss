@@ -1,0 +1,41 @@
+.filter {
+  @apply rounded-md overflow-hidden border border-slate-300 text-sm bg-white;
+
+  .container,
+  .count {
+    @apply flex;
+    li {
+      @apply text-center flex-1 p-1 cursor-pointer;
+    }
+    .active {
+      @apply bg-gray-200;
+    }
+  }
+  .container {
+    @apply border-b border-slate-300;
+    span {
+      @apply ml-2 bg-slate-200 px-3 py-1 rounded-full;
+    }
+  }
+}
+.buying {
+  @apply flex mt-3 justify-evenly items-center;
+  .price {
+    @apply basis-1/3 font-semibold text-center;
+  }
+  button {
+    @apply flex-1 border border-slate-300 rounded-md py-1 flex  items-center justify-center  bg-white;
+    svg {
+      @apply m-0 mr-1;
+    }
+    &:hover {
+      @apply bg-slate-100;
+    }
+    &:hover > span {
+      @apply bg-slate-300;
+    }
+    span {
+      @apply ml-2 bg-slate-200 px-2.5 py-0.5 rounded-full;
+    }
+  }
+}
