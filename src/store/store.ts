@@ -27,7 +27,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: [productsApi.reducerPath, "searchSlice"],
+  blacklist: [productsApi.reducerPath, "searchSlice", "mainSlice"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
