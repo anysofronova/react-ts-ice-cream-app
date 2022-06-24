@@ -1,5 +1,6 @@
 import styles from "./Contact.module.scss";
-const Contact = () => {
+import { FC } from "react";
+const Contact: FC = () => {
   return (
     <div className={styles.contact}>
       <h2>Contact Us</h2>

@@ -3,8 +3,9 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 
 import styles from "./CartBlock.module.scss";
 import { useAppSelector } from "../../../hooks/redux";
+import { FC } from "react";
 
-const CartBlock = () => {
+const CartBlock: FC = () => {
   const { totalPrice, totalCount } = useAppSelector((state) => state.cartSlice);
   return (
     <Link to={"/cart"}>

@@ -6,4 +6,6 @@ export interface IProduct {
   filters?: string[];
   description?: string;
   calorie?: number[];
+  imgUrlSmall?: string;
+  imgUrlMedium?: string;
 }

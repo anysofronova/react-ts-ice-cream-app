@@ -1,6 +1,8 @@
 import styles from "./NoResultsImg.module.scss";
+import { INoResultsImg } from "../../models/INoResultsImg";
+import { FC } from "react";
 
-const NoResultsImg = ({ imgUrl, title }: { imgUrl: string; title: string }) => {
+const NoResultsImg: FC<INoResultsImg> = ({ imgUrl, title }) => {
   return (
     <div className={styles.empty}>
       <div className={styles.title}>{title}</div>

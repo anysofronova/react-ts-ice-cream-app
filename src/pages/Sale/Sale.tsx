@@ -3,8 +3,9 @@ import SaleItem from "../../components/SaleItem/SaleItem";
 import { productsApi } from "../../services/ProductsService";
 import SkeletonSale from "../../components/UI/SkeletonSale";
 import NotFound from "../NotFound/NotFound";
+import { FC } from "react";
 
-const Sale = () => {
+const Sale: FC = () => {
   const { data, isLoading, error } = productsApi.useFetchSaleQuery("");
   return (
     <div className={styles.sale}>
@@ -15,7 +16,7 @@ const Sale = () => {
           <NotFound />
         </div>
       ) : (
-        data && data.map((i, idx) => <SaleItem image={i.image} key={idx} />)
+        data?.map((i, idx) => <SaleItem image={i.image} key={idx} />)
       )}
     </div>
   );

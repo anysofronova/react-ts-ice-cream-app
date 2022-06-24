@@ -1,5 +1,6 @@
 import styles from "./About.module.scss";
-const About = () => {
+import { FC } from "react";
+const About: FC = () => {
   return (
     <div className={styles.about}>
       <h2>Our Story</h2>
