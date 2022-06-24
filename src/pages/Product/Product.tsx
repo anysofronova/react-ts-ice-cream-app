@@ -58,8 +58,9 @@ const Product: FC = () => {
                   <td>Total Carb.</td>
                 </tr>
                 <tr>
-                  {product.calorie &&
-                    product.calorie.map((i) => <td key={i}>{i}</td>)}
+                  {product?.calorie?.map((i) => (
+                    <td key={i}>{i}</td>
+                  ))}
                 </tr>
               </tbody>
             </table>

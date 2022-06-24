@@ -16,7 +16,7 @@ const Sale: FC = () => {
           <NotFound />
         </div>
       ) : (
-        data && data.map((i, idx) => <SaleItem image={i.image} key={idx} />)
+        data?.map((i, idx) => <SaleItem image={i.image} key={idx} />)
       )}
     </div>
   );

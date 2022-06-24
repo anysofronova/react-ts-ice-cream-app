@@ -58,8 +58,7 @@ const Products: FC = () => {
             <NoResultsImg imgUrl={placeholder} title={"No Results Found!"} />
           </div>
         ) : (
-          items &&
-          items.map((i) => (
+          items?.map((i) => (
             <Item
               prices={i.prices}
               title={i.title}
