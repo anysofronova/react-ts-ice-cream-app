@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/react-ts-ice-cream-app/static/css/main.ddece746.css",
-    "main.js": "/react-ts-ice-cream-app/static/js/main.d37eea57.js",
+    "main.css": "/react-ts-ice-cream-app/static/css/main.1cbce734.css",
+    "main.js": "/react-ts-ice-cream-app/static/js/main.285f6cce.js",
     "static/js/787.99992ad1.chunk.js": "/react-ts-ice-cream-app/static/js/787.99992ad1.chunk.js",
-    "static/media/noResults.svg": "/react-ts-ice-cream-app/static/media/noResults.2964f7dff4225a552c0a98b398206a8e.svg",
+    "static/media/noResults.svg": "/react-ts-ice-cream-app/static/media/noResults.3817ba7145479c79b3845cf48eb5e229.svg",
     "static/media/logo.png": "/react-ts-ice-cream-app/static/media/logo.f5cb5dfdc7f48ec40193.png",
     "static/media/emptyCart.svg": "/react-ts-ice-cream-app/static/media/emptyCart.7676a3da50903e4227fa7af28cc6cee2.svg",
     "static/media/imgPlaceholder.jpeg": "/react-ts-ice-cream-app/static/media/imgPlaceholder.0692b4324e7d4d80c543.jpeg",
     "index.html": "/react-ts-ice-cream-app/index.html",
-    "main.ddece746.css.map": "/react-ts-ice-cream-app/static/css/main.ddece746.css.map",
-    "main.d37eea57.js.map": "/react-ts-ice-cream-app/static/js/main.d37eea57.js.map",
+    "main.1cbce734.css.map": "/react-ts-ice-cream-app/static/css/main.1cbce734.css.map",
+    "main.285f6cce.js.map": "/react-ts-ice-cream-app/static/js/main.285f6cce.js.map",
     "787.99992ad1.chunk.js.map": "/react-ts-ice-cream-app/static/js/787.99992ad1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ddece746.css",
-    "static/js/main.d37eea57.js"
+    "static/css/main.1cbce734.css",
+    "static/js/main.285f6cce.js"
   ]
 }
