@@ -46,9 +46,11 @@ const Product: FC = () => {
                 </span>
               ))}
             </div>
-            <div className={styles.desc}>
-              Ingredients: {product.description}
-            </div>
+            {product.description && (
+              <div className={styles.desc}>
+                Ingredients: {product.description}
+              </div>
+            )}
             <table>
               <tbody>
                 <tr>

@@ -1,12 +1,12 @@
 .container {
   @apply flex flex-col px-32 py-3 justify-center items-center gap-2;
   .product {
-    @apply flex gap-4 justify-center items-center;
+    @apply flex gap-4 justify-center items-center w-full;
     .img {
       @apply basis-1/3;
     }
     .info {
-      @apply basis-2/3 flex flex-col gap-2;
+      @apply basis-2/3 flex flex-col gap-2 w-full;
       .title {
         @apply font-normal text-center text-xl mb-2;
       }
