@@ -1,0 +1,62 @@
+.container {
+  @apply flex flex-col px-32 py-3 justify-center items-center gap-2;
+  .product {
+    @apply flex gap-4 justify-center items-center;
+    .img {
+      @apply basis-1/3;
+    }
+    .info {
+      @apply basis-2/3 flex flex-col gap-2;
+      .title {
+        @apply font-normal text-center text-xl mb-2;
+      }
+      .filters {
+        @apply flex gap-1;
+        .filter {
+          @apply bg-slate-200 px-1.5 py-1 rounded-3xl;
+        }
+      }
+      .desc {
+        @apply py-2;
+      }
+      table {
+        @apply border text-center  border-collapse;
+        tr,
+        td {
+          @apply border rounded-md;
+        }
+      }
+    }
+  }
+
+  .back {
+    @apply border rounded-3xl px-16 py-2 py-1 text-lg font-normal text-slate-500 cursor-pointer self-start;
+    &:hover {
+      @apply text-black;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    @apply px-16;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    @apply px-8;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    @apply px-4;
+    .product {
+      @apply flex-col;
+      .img {
+        @apply w-3/4;
+      }
+    }
+  }
+}

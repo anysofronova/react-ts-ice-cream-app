@@ -8,3 +8,7 @@
 input {
   @apply outline-none;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}

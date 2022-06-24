@@ -9,6 +9,7 @@ import {
 } from "react-icons/ai";
 import { addItem, minusItem, deleteItem } from "../../store/slices/cartSlice";
 import placeholder from "../../assets/imgPlaceholder.jpeg";
+import { Link } from "react-router-dom";
 
 interface ICartItem {
   imgUrl?: string;
@@ -37,7 +38,9 @@ const CartItem = ({
         <img src={imgUrl || placeholder} alt="ice-cream" />
       </div>
       <div className={styles.titles}>
-        <div className={styles.title}>{title}</div>
+        <Link to={`/ice-cream/${id}`}>
+          <div className={styles.title}>{title}</div>
+        </Link>
         <div className={styles.subtitle}>
           {container[parameters[0]]}, {sizes[parameters[1]]}
         </div>

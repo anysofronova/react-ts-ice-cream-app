@@ -1,8 +1,16 @@
 .header {
   @apply grid  gap-4 border-b px-8 py-3 items-center justify-items-end;
   grid-template-columns: 30vw 30vw 1fr;
+  grid-template-areas: "logo searchPanel cart";
   .logo {
+    grid-area: logo;
     justify-self: start;
+  }
+  .cart {
+    grid-area: cart;
+  }
+  .searchPanel {
+    grid-area: searchPanel;
   }
 }
 
@@ -21,15 +29,7 @@
     @apply grid-cols-2 px-8 gap-4;
     grid-template-areas: "logo cart" "searchPanel searchPanel";
   }
-  .logo {
-    grid-area: logo;
-    justify-self: start;
-  }
-  .cart {
-    grid-area: cart;
-  }
   .searchPanel {
-    grid-area: searchPanel;
     justify-self: start;
   }
 }
