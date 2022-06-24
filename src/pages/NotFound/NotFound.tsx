@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import styles from "./NotFound.module.scss";
+import { FC } from "react";
 
-function NotFound() {
+const NotFound: FC = () => {
   return (
     <div className={styles.notFound}>
       <div className={styles.face}>
@@ -21,6 +22,6 @@ function NotFound() {
       </NavLink>
     </div>
   );
-}
+};
 
 export default NotFound;

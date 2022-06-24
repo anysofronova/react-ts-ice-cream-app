@@ -3,33 +3,37 @@ import cn from "classnames";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { changeCategory } from "../../../store/slices/filterSlice";
 import { setCurrentPage } from "../../../store/slices/mainSlice";
-
-interface ICategories {
-  title: string;
-}
+import { ICategories } from "../../../models/ICategories";
 
 const Categories = () => {
   const categories: ICategories[] = [
     {
       title: "",
+      id: 0,
     },
     {
       title: "Gelato",
+      id: 1,
     },
     {
       title: "Sorbet",
+      id: 2,
     },
     {
       title: "Sherbet",
+      id: 3,
     },
     {
       title: "Frozen Yogurt",
+      id: 4,
     },
     {
       title: "Sugar Free",
+      id: 5,
     },
     {
       title: "Vegan",
+      id: 6,
     },
   ];
   const category = useAppSelector((state) => state.filterSlice.category);
@@ -39,10 +43,10 @@ const Categories = () => {
     dispatch(setCurrentPage(1));
   };
   return (
-    <div className={styles.categories}>
-      {categories.map((i, idx) => (
+    <ul className={styles.categories}>
+      {categories.map((i) => (
         <li
-          key={idx}
+          key={i.id}
           onClick={() => onChangeCategory(i.title)}
           className={cn(
             styles.category,
@@ -54,7 +58,7 @@ const Categories = () => {
           {i.title || "All"}
         </li>
       ))}
-    </div>
+    </ul>
   );
 };
 

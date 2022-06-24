@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import { useAppDispatch } from "../../hooks/redux";
 
 import styles from "./CartItem.module.scss";
@@ -10,24 +10,16 @@ import {
 import { addItem, minusItem, deleteItem } from "../../store/slices/cartSlice";
 import placeholder from "../../assets/imgPlaceholder.jpeg";
 import { Link } from "react-router-dom";
+import { ICartItem } from "../../models/ICartItem";
 
-interface ICartItem {
-  imgUrl?: string;
-  title: string;
-  count: number;
-  finalPrice: number;
-  id: number;
-  parameters: number[];
-}
-
-const CartItem = ({
+const CartItem: FC<ICartItem> = ({
   imgUrl,
   title,
   count,
   finalPrice,
   id,
   parameters,
-}: ICartItem) => {
+}) => {
   const dispatch = useAppDispatch();
   const sizes: string[] = ["1b.", "2b.", "3b."];
   const container: string[] = ["Waffle cone", "Eco"];

@@ -3,8 +3,16 @@ import placeholder from "../../../assets/imgPlaceholder.jpeg";
 import { IProduct } from "../../../models/IProduct";
 import { Link } from "react-router-dom";
 import OrderPanel from "./OrderPanel/OrderPanel";
+import { FC } from "react";
 
-const Item = ({ title, prices, imgUrl, id }: IProduct) => {
+const Item: FC<IProduct> = ({
+  title,
+  prices,
+  imgUrl,
+  id,
+  imgUrlSmall,
+  imgUrlMedium,
+}) => {
   return (
     <div className={styles.item}>
       <div>
@@ -13,6 +21,7 @@ const Item = ({ title, prices, imgUrl, id }: IProduct) => {
             src={imgUrl || placeholder}
             alt="ice-Cream"
             className={styles.img}
+            srcSet={`${imgUrlSmall} 300w, ${imgUrlMedium} 500w`}
           />
           <h4 className={styles.title}>{title}</h4>
         </Link>

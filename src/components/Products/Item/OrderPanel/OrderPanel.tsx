@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux";
 import { addItem } from "../../../../store/slices/cartSlice";
 import cn from "classnames";
@@ -6,7 +6,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { IProduct } from "../../../../models/IProduct";
 import styles from "./OrderPanel.module.scss";
 
-const OrderPanel = ({ title, prices, imgUrl, id }: IProduct) => {
+const OrderPanel: FC<IProduct> = ({ title, prices, imgUrl, id }) => {
   const [container, setContainer] = useState<number>(0);
   const [ballsCount, setBallsCount] = useState<number>(0);
   const sizes: string[] = ["1b.", "2b.", "3b."];

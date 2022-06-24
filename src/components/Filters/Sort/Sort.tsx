@@ -3,8 +3,9 @@ import styles from "./Sort.module.scss";
 import { FormControl, InputLabel } from "@mui/material";
 import { useAppDispatch } from "../../../hooks/redux";
 import { changeSort } from "../../../store/slices/filterSlice";
+import { FC } from "react";
 
-const Sort = () => {
+const Sort: FC = () => {
   const dispatch = useAppDispatch();
   return (
     <FormControl className={styles.sort}>

@@ -1,12 +1,11 @@
-import { useRef } from "react";
-import { BsSearch } from "react-icons/bs";
-import { AiOutlineClose } from "react-icons/ai";
+import { FC, useRef } from "react";
+import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
 
 import styles from "./SearchPanel.module.scss";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { searchNewValue } from "../../../store/slices/searchSlice";
 
-const SearchPanel = () => {
+const SearchPanel: FC = () => {
   const searchValue = useAppSelector((state) => state.searchSlice.searchValue);
   const dispatch = useAppDispatch();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -17,7 +16,7 @@ const SearchPanel = () => {
 
   return (
     <div className={styles.searchPanel}>
-      <BsSearch />
+      <AiOutlineSearch />
       <input
         ref={inputRef}
         type="text"

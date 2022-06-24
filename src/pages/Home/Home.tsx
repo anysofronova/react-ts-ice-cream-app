@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import Products from "../../components/Products/Products";
 
-const Home = () => {
+const Home: FC = () => {
   return <Products />;
 };
 

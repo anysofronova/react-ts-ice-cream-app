@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { FC, Fragment } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 
 import styles from "./Products.module.scss";
@@ -8,11 +8,11 @@ import Skeleton from "../UI/Skeleton";
 import Filters from "../Filters/Filters";
 import NotFound from "../../pages/NotFound/NotFound";
 import { setCurrentPage } from "../../store/slices/mainSlice";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import NoResultsImg from "../NoResultsImg/NoResultsImg";
 import placeholder from "../../assets/noResults.svg";
 
-const Products = () => {
+const Products: FC = () => {
   const {
     sort: sortBy,
     category: filters,
@@ -66,6 +66,8 @@ const Products = () => {
               imgUrl={i.imgUrl}
               key={i.id}
               id={i.id}
+              imgUrlSmall={i.imgUrlSmall}
+              imgUrlMedium={i.imgUrlMedium}
             />
           ))
         )}
@@ -75,13 +77,13 @@ const Products = () => {
         <div className={styles.pagination}>
           {page > 1 && (
             <button onClick={() => onChangePage(page - 1)}>
-              <MdKeyboardArrowLeft />
+              <AiOutlineArrowLeft />
             </button>
           )}
           <span className={styles.page}>{page}</span>
           {data && data.length > 0 && (
-            <button onClick={() => onChangePage(page + 1)}>
-              <MdKeyboardArrowRight />
+            <button onClick={() => onChangePage(page + 1)} name={"Next Page"}>
+              <AiOutlineArrowRight />
             </button>
           )}
         </div>

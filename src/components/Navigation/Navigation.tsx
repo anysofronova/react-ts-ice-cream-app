@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom";
 import styles from "./Navigation.module.scss";
+import { INavigationList } from "../../models/INavigationList";
+import { FC } from "react";
 
-type navigationListType = {
-  id: number;
-  name: string;
-  link: string;
-};
-
-const Navigation = () => {
-  const navigationList: navigationListType[] = [
+const Navigation: FC = () => {
+  const navigationList: INavigationList[] = [
     { id: 0, name: "Home", link: "/" },
     { id: 1, name: "About Us", link: "/about" },
     { id: 2, name: "Sale", link: "/sale" },

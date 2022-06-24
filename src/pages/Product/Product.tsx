@@ -3,12 +3,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import { productsApi } from "../../services/ProductsService";
 import NotFound from "../NotFound/NotFound";
 import placeholder from "../../assets/imgPlaceholder.jpeg";
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { IProduct } from "../../models/IProduct";
 import OrderPanel from "../../components/Products/Item/OrderPanel/OrderPanel";
 import { CircularProgress } from "@mui/material";
 
-const Product = () => {
+const Product: FC = () => {
   const id: string = useParams().id || "-10";
   const navigate = useNavigate();
   if (id === "-10") navigate("/");
@@ -31,7 +31,11 @@ const Product = () => {
       {product && (
         <div className={styles.product}>
           <div className={styles.img}>
-            <img src={product.imgUrl || placeholder} alt="ice-cream" />
+            <img
+              src={product.imgUrl || placeholder}
+              alt="ice-cream"
+              srcSet={`${product.imgUrlSmall} 300w, ${product.imgUrlMedium} 500w`}
+            />
           </div>
           <div className={styles.info}>
             <div className={styles.title}>{product.title}</div>

@@ -3,8 +3,9 @@ import SearchPanel from "./SearchPanel/SearchPanel";
 import styles from "./Header.module.scss";
 import CartBlock from "./CartBlock/CartBlock";
 import { useLocation } from "react-router-dom";
+import { FC } from "react";
 
-const Header = () => {
+const Header: FC = () => {
   const { pathname } = useLocation();
   return (
     <>

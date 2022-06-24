@@ -1,6 +1,5 @@
-import React from "react";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { BsTrash } from "react-icons/bs";
+import React, { FC } from "react";
+import { AiOutlineShoppingCart, AiOutlineDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 import styles from "./Cart.module.scss";
@@ -10,7 +9,7 @@ import placeholder from "../../assets/emptyCart.svg";
 import CartItem from "../../components/CartItem/CartItem";
 import NoResultsImg from "../../components/NoResultsImg/NoResultsImg";
 
-const Cart = () => {
+const Cart: FC = () => {
   const { cartList } = useAppSelector((state) => state.cartSlice);
   const { totalPrice, totalCount } = useAppSelector((state) => state.cartSlice);
   const dispatch = useAppDispatch();
@@ -24,7 +23,7 @@ const Cart = () => {
         {totalCount !== 0 && (
           <div className={styles.clear}>
             <button onClick={() => dispatch(clearCart())}>
-              <BsTrash />
+              <AiOutlineDelete />
               Clear Cart
             </button>
           </div>
