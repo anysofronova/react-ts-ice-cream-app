@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, memo, useCallback, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux";
 import { addItem } from "../../../../store/slices/cartSlice";
 import cn from "classnames";
@@ -6,7 +6,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { IProduct } from "../../../../models/IProduct";
 import styles from "./OrderPanel.module.scss";
 
-const OrderPanel: FC<IProduct> = ({ title, prices, imgUrl, id }) => {
+const OrderPanel: FC<IProduct> = memo(({ title, prices, imgUrl, id }) => {
   const [container, setContainer] = useState<number>(0);
   const [ballsCount, setBallsCount] = useState<number>(0);
   const sizes: string[] = ["1b.", "2b.", "3b."];
@@ -15,11 +15,11 @@ const OrderPanel: FC<IProduct> = ({ title, prices, imgUrl, id }) => {
     prices[ballsCount] + containerPrice[container]
   ).toFixed(2);
   const dispatch = useAppDispatch();
-  const onButton = (): void => {
+  const onButton = useCallback((): void => {
     const count: number = 1;
     const parameters: number[] = [container, ballsCount];
     dispatch(addItem({ id, title, imgUrl, finalPrice, count, parameters }));
-  };
+  }, []);
   const { cartList } = useAppSelector((state) => state.cartSlice);
   const count = cartList
     .filter((i) => i.id === id)
@@ -62,6 +62,6 @@ const OrderPanel: FC<IProduct> = ({ title, prices, imgUrl, id }) => {
       </div>
     </div>
   );
-};
+});
 
 export default OrderPanel;

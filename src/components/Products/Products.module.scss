@@ -3,9 +3,10 @@
   .error {
     @apply col-span-3;
   }
-}
-.noResults {
-  @apply px-8;
+  .noResults {
+    @apply px-8;
+    grid-column: 1 / -1;
+  }
 }
 
 .pagination {
@@ -18,29 +19,31 @@
 @media screen and (max-width: 1280px) {
   .products {
     @apply px-16 grid-cols-3 gap-3;
-  }
-  .noResults {
-    @apply px-16;
+    .noResults {
+      @apply px-16;
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
   }
 }
 
 @media screen and (max-width: 768px) {
   .products {
     @apply px-8 grid-cols-2 gap-2;
-  }
-  .noResults {
-    @apply px-8;
+    .noResults {
+      @apply px-8;
+    }
   }
 }
 
 @media screen and (max-width: 480px) {
   .products {
     @apply grid-cols-1 px-4;
-  }
-  .noResults {
-    @apply px-4;
-  }
-  svg {
-    margin: auto;
+    .noResults {
+      @apply px-4;
+    }
+    svg {
+      margin: auto;
+    }
   }
 }
