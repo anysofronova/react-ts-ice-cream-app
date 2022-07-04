@@ -12,7 +12,7 @@ const SearchPanel: FC = memo(() => {
   const onClear = useCallback(() => {
     dispatch(searchNewValue(undefined));
     if (null !== inputRef.current) inputRef.current.focus();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={styles.searchPanel}>

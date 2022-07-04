@@ -8,6 +8,7 @@ import { clearCart } from "../../store/slices/cartSlice";
 import placeholder from "../../assets/emptyCart.svg";
 import CartItem from "../../components/CartItem/CartItem";
 import NoResultsImg from "../../components/NoResultsImg/NoResultsImg";
+import Recommendation from "../../components/Recommendation/Recommendation";
 
 const Cart: FC = () => {
   const { cartList } = useAppSelector((state) => state.cartSlice);
@@ -53,6 +54,7 @@ const Cart: FC = () => {
         </Link>
         {totalCount !== 0 && <button className={styles.buy}>Buy</button>}
       </div>
+      {cartList.length > 0 && <Recommendation />}
     </div>
   );
 };

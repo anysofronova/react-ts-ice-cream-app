@@ -6,7 +6,7 @@ import OrderPanel from "./OrderPanel/OrderPanel";
 import { FC, memo } from "react";
 
 const Item: FC<IProduct> = memo(
-  ({ title, prices, imgUrl, id, imgUrlSmall, imgUrlMedium }) => {
+  ({ title, prices, imgUrl, id, imgUrlSmall, imgUrlMedium, filters }) => {
     return (
       <div className={styles.item}>
         <div>
@@ -20,7 +20,13 @@ const Item: FC<IProduct> = memo(
             <h4 className={styles.title}>{title}</h4>
           </Link>
         </div>
-        <OrderPanel title={title} prices={prices} imgUrl={imgUrl} id={id} />
+        <OrderPanel
+          title={title}
+          prices={prices}
+          imgUrl={imgUrl}
+          id={id}
+          filters={filters}
+        />
       </div>
     );
   }

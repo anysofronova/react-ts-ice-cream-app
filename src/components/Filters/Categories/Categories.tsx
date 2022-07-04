@@ -9,10 +9,13 @@ import myCategories from "../../../data/categories";
 const Categories = memo(() => {
   const category = useAppSelector((state) => state.filterSlice.category);
   const dispatch = useAppDispatch();
-  const onChangeCategory = useCallback((title: string) => {
-    dispatch(changeCategory(title === "" ? undefined : title));
-    dispatch(setCurrentPage(1));
-  }, []);
+  const onChangeCategory = useCallback(
+    (title: string) => {
+      dispatch(changeCategory(title === "" ? undefined : title));
+      dispatch(setCurrentPage(1));
+    },
+    [dispatch]
+  );
   return (
     <ul className={styles.categories}>
       {myCategories.map((i) => (
