@@ -19,4 +19,4 @@
 5. Pagination is implemented in the App.
 
 **Demo:** https://anysofronova.github.io/react-ts-ice-cream-app/
-![img](./projectAssets/demo.png)
+![img](https://i.ibb.co/JpC5Fv6/2022-07-04-12-01-42.png)
