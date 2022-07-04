@@ -1,4 +1,4 @@
-import { FC, Fragment } from "react";
+import { FC, Fragment, useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 
 import styles from "./Products.module.scss";
@@ -21,10 +21,13 @@ const Products: FC = () => {
   const { currentPage: page } = useAppSelector((state) => state.mainSlice);
   const search = useAppSelector((state) => state.searchSlice.searchValue);
   const dispatch = useAppDispatch();
-  const onChangePage = (page: number) => {
-    dispatch(setCurrentPage(page));
-    window.scrollTo(0, 0);
-  };
+  const onChangePage = useCallback(
+    (page: number) => {
+      dispatch(setCurrentPage(page));
+      window.scrollTo(0, 0);
+    },
+    [dispatch]
+  );
   const {
     data: items,
     isLoading,
@@ -67,6 +70,7 @@ const Products: FC = () => {
               id={i.id}
               imgUrlSmall={i.imgUrlSmall}
               imgUrlMedium={i.imgUrlMedium}
+              filters={i.filters}
             />
           ))
         )}

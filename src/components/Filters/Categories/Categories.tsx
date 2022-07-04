@@ -3,48 +3,22 @@ import cn from "classnames";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { changeCategory } from "../../../store/slices/filterSlice";
 import { setCurrentPage } from "../../../store/slices/mainSlice";
-import { ICategories } from "../../../models/ICategories";
+import { memo, useCallback } from "react";
+import myCategories from "../../../data/categories";
 
-const Categories = () => {
-  const categories: ICategories[] = [
-    {
-      title: "",
-      id: 0,
-    },
-    {
-      title: "Gelato",
-      id: 1,
-    },
-    {
-      title: "Sorbet",
-      id: 2,
-    },
-    {
-      title: "Sherbet",
-      id: 3,
-    },
-    {
-      title: "Frozen Yogurt",
-      id: 4,
-    },
-    {
-      title: "Sugar Free",
-      id: 5,
-    },
-    {
-      title: "Vegan",
-      id: 6,
-    },
-  ];
+const Categories = memo(() => {
   const category = useAppSelector((state) => state.filterSlice.category);
   const dispatch = useAppDispatch();
-  const onChangeCategory = (title: string) => {
-    dispatch(changeCategory(title === "" ? undefined : title));
-    dispatch(setCurrentPage(1));
-  };
+  const onChangeCategory = useCallback(
+    (title: string) => {
+      dispatch(changeCategory(title === "" ? undefined : title));
+      dispatch(setCurrentPage(1));
+    },
+    [dispatch]
+  );
   return (
     <ul className={styles.categories}>
-      {categories.map((i) => (
+      {myCategories.map((i) => (
         <li
           key={i.id}
           onClick={() => onChangeCategory(i.title)}
@@ -60,6 +34,6 @@ const Categories = () => {
       ))}
     </ul>
   );
-};
+});
 
 export default Categories;

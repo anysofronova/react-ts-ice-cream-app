@@ -1,0 +1,29 @@
+.recommendation {
+  max-width: 85%;
+  margin: 0 auto;
+  p {
+    @apply font-medium mt-4 mb-2;
+  }
+  .list {
+    @apply grid grid-cols-3 gap-3 overflow-hidden;
+    grid-template-rows: 1fr 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .recommendation {
+    max-width: 100%;
+    margin: 0 auto;
+    .list {
+      @apply grid grid-cols-2;
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .recommendation {
+    .list {
+      @apply grid grid-cols-1 grid-rows-3;
+    }
+  }
+}
