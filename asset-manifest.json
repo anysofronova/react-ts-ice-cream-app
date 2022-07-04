@@ -1,19 +1,39 @@
 {
   "files": {
-    "main.css": "/react-ts-ice-cream-app/static/css/main.cee89ca4.css",
-    "main.js": "/react-ts-ice-cream-app/static/js/main.c879047c.js",
+    "main.css": "/react-ts-ice-cream-app/static/css/main.be84cbab.css",
+    "main.js": "/react-ts-ice-cream-app/static/js/main.45d14e58.js",
+    "Product.css": "/react-ts-ice-cream-app/static/css/Product.6414c7bc.chunk.css",
+    "Product.js": "/react-ts-ice-cream-app/static/js/Product.cf6aa41a.chunk.js",
+    "Cart.css": "/react-ts-ice-cream-app/static/css/Cart.7c93df17.chunk.css",
+    "Cart.js": "/react-ts-ice-cream-app/static/js/Cart.f29d30f8.chunk.js",
+    "Sale.css": "/react-ts-ice-cream-app/static/css/Sale.b9116cdf.chunk.css",
+    "Sale.js": "/react-ts-ice-cream-app/static/js/Sale.74f26669.chunk.js",
+    "About.css": "/react-ts-ice-cream-app/static/css/About.d4373f77.chunk.css",
+    "About.js": "/react-ts-ice-cream-app/static/js/About.40242b90.chunk.js",
+    "Contact.css": "/react-ts-ice-cream-app/static/css/Contact.97e25683.chunk.css",
+    "Contact.js": "/react-ts-ice-cream-app/static/js/Contact.8c3c9326.chunk.js",
     "static/js/787.99992ad1.chunk.js": "/react-ts-ice-cream-app/static/js/787.99992ad1.chunk.js",
     "static/media/noResults.svg": "/react-ts-ice-cream-app/static/media/noResults.3817ba7145479c79b3845cf48eb5e229.svg",
     "static/media/logo.png": "/react-ts-ice-cream-app/static/media/logo.f5cb5dfdc7f48ec40193.png",
     "static/media/emptyCart.svg": "/react-ts-ice-cream-app/static/media/emptyCart.7676a3da50903e4227fa7af28cc6cee2.svg",
     "static/media/imgPlaceholder.jpeg": "/react-ts-ice-cream-app/static/media/imgPlaceholder.0692b4324e7d4d80c543.jpeg",
     "index.html": "/react-ts-ice-cream-app/index.html",
-    "main.cee89ca4.css.map": "/react-ts-ice-cream-app/static/css/main.cee89ca4.css.map",
-    "main.c879047c.js.map": "/react-ts-ice-cream-app/static/js/main.c879047c.js.map",
+    "main.be84cbab.css.map": "/react-ts-ice-cream-app/static/css/main.be84cbab.css.map",
+    "main.45d14e58.js.map": "/react-ts-ice-cream-app/static/js/main.45d14e58.js.map",
+    "Product.6414c7bc.chunk.css.map": "/react-ts-ice-cream-app/static/css/Product.6414c7bc.chunk.css.map",
+    "Product.cf6aa41a.chunk.js.map": "/react-ts-ice-cream-app/static/js/Product.cf6aa41a.chunk.js.map",
+    "Cart.7c93df17.chunk.css.map": "/react-ts-ice-cream-app/static/css/Cart.7c93df17.chunk.css.map",
+    "Cart.f29d30f8.chunk.js.map": "/react-ts-ice-cream-app/static/js/Cart.f29d30f8.chunk.js.map",
+    "Sale.b9116cdf.chunk.css.map": "/react-ts-ice-cream-app/static/css/Sale.b9116cdf.chunk.css.map",
+    "Sale.74f26669.chunk.js.map": "/react-ts-ice-cream-app/static/js/Sale.74f26669.chunk.js.map",
+    "About.d4373f77.chunk.css.map": "/react-ts-ice-cream-app/static/css/About.d4373f77.chunk.css.map",
+    "About.40242b90.chunk.js.map": "/react-ts-ice-cream-app/static/js/About.40242b90.chunk.js.map",
+    "Contact.97e25683.chunk.css.map": "/react-ts-ice-cream-app/static/css/Contact.97e25683.chunk.css.map",
+    "Contact.8c3c9326.chunk.js.map": "/react-ts-ice-cream-app/static/js/Contact.8c3c9326.chunk.js.map",
     "787.99992ad1.chunk.js.map": "/react-ts-ice-cream-app/static/js/787.99992ad1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cee89ca4.css",
-    "static/js/main.c879047c.js"
+    "static/css/main.be84cbab.css",
+    "static/js/main.45d14e58.js"
   ]
 }
