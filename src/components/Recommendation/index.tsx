@@ -1,9 +1,9 @@
+import { Item } from "../Products/Item";
 import styles from "./Recommendation.module.scss";
-import Item from "../Products/Item/Item";
-import { productsApi } from "../../services/ProductsService";
 import { useAppSelector } from "../../hooks/redux";
+import { productsApi } from "../../services/ProductsService";
 
-const Recommendation = () => {
+export const Recommendation = () => {
   const { cartList } = useAppSelector((state) => state.cartSlice);
   const filters = cartList
     .map((i) => i.filters && i.filters.map((j) => j).join("|"))
@@ -35,5 +35,3 @@ const Recommendation = () => {
     </div>
   );
 };
-
-export default Recommendation;

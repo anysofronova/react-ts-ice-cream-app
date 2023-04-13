@@ -1,11 +1,11 @@
-import styles from "./Sale.module.scss";
-import SaleItem from "../../components/SaleItem/SaleItem";
-import { productsApi } from "../../services/ProductsService";
-import SkeletonSale from "../../components/UI/SkeletonSale";
-import NotFound from "../NotFound/NotFound";
 import { FC } from "react";
 
-const Sale: FC = () => {
+import { NotFound } from "../NotFound";
+import styles from "./Sale.module.scss";
+import { SkeletonSale, SaleItem } from "../../components";
+import { productsApi } from "../../services/ProductsService";
+
+export const Sale: FC = () => {
   const { data, isLoading, error } = productsApi.useFetchSaleQuery("");
   return (
     <div className={styles.sale}>
@@ -21,5 +21,3 @@ const Sale: FC = () => {
     </div>
   );
 };
-
-export default Sale;

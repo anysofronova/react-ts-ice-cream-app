@@ -1,18 +1,18 @@
 import { FC, memo } from "react";
-import { useAppDispatch } from "../../hooks/redux";
-
-import styles from "./CartItem.module.scss";
 import {
   AiOutlineClose,
   AiOutlineMinusCircle,
   AiOutlinePlusCircle,
 } from "react-icons/ai";
-import { addItem, minusItem, deleteItem } from "../../store/slices/cartSlice";
-import placeholder from "../../assets/imgPlaceholder.jpeg";
 import { Link } from "react-router-dom";
-import { ICartItem } from "../../models/ICartItem";
 
-const CartItem: FC<ICartItem> = memo(
+import { ICartItem } from "../../models";
+import styles from "./CartItem.module.scss";
+import { useAppDispatch } from "../../hooks/redux";
+import placeholder from "../../assets/imgPlaceholder.jpeg";
+import { addItem, deleteItem, minusItem } from "../../store/slices";
+
+export const CartItem: FC<ICartItem> = memo(
   ({ imgUrl, title, count, finalPrice, id, parameters }) => {
     const dispatch = useAppDispatch();
     const sizes: string[] = ["1b.", "2b.", "3b."];
@@ -51,5 +51,3 @@ const CartItem: FC<ICartItem> = memo(
     );
   }
 );
-
-export default CartItem;

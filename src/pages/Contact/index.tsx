@@ -1,6 +1,8 @@
-import styles from "./Contact.module.scss";
 import { FC } from "react";
-const Contact: FC = () => {
+
+import styles from "./Contact.module.scss";
+
+export const Contact: FC = () => {
   return (
     <div className={styles.contact}>
       <h2>Contact Us</h2>
@@ -32,5 +34,3 @@ const Contact: FC = () => {
     </div>
   );
 };
-
-export default Contact;

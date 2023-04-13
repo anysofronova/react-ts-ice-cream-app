@@ -1,8 +1,9 @@
 import { FC, memo } from "react";
-import logo from "../../../assets/logo.png";
-import styles from "./Logo.module.scss";
 
-const Logo: FC = memo(() => {
+import styles from "./Logo.module.scss";
+import logo from "../../../assets/logo.png";
+
+export const Logo: FC = memo(() => {
   return (
     <div className={styles.logo}>
       <img src={logo} alt="ice-cream logo" />
@@ -13,5 +14,3 @@ const Logo: FC = memo(() => {
     </div>
   );
 });
-
-export default Logo;

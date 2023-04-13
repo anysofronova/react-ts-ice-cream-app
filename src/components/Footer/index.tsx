@@ -1,7 +1,8 @@
-import styles from "./Footer.module.scss";
 import { BsGithub } from "react-icons/bs";
 
-const Footer = () => {
+import styles from "./Footer.module.scss";
+
+export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <a
@@ -15,5 +16,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

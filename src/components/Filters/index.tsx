@@ -1,9 +1,10 @@
-import Categories from "./Categories/Categories";
-import Sort from "./Sort/Sort";
-import styles from "./Filters.module.scss";
 import { FC, memo } from "react";
 
-const Filters: FC = memo(() => {
+import { Sort } from "./Sort";
+import { Categories } from "./Categories";
+import styles from "./Filters.module.scss";
+
+export const Filters: FC = memo(() => {
   return (
     <div className={styles.filters}>
       <div className={styles.categories}>
@@ -15,5 +16,3 @@ const Filters: FC = memo(() => {
     </div>
   );
 });
-
-export default Filters;

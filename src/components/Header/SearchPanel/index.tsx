@@ -2,10 +2,10 @@ import { FC, memo, useCallback, useRef } from "react";
 import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
 
 import styles from "./SearchPanel.module.scss";
+import { searchNewValue } from "../../../store/slices";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
-import { searchNewValue } from "../../../store/slices/searchSlice";
 
-const SearchPanel: FC = memo(() => {
+export const SearchPanel: FC = memo(() => {
   const searchValue = useAppSelector((state) => state.searchSlice.searchValue);
   const dispatch = useAppDispatch();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -29,5 +29,3 @@ const SearchPanel: FC = memo(() => {
     </div>
   );
 });
-
-export default SearchPanel;

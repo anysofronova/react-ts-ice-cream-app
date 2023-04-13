@@ -1,7 +1,8 @@
-import React from "react";
 import ContentLoader, { IContentLoaderProps } from "react-content-loader";
 
-const Skeleton = (props: JSX.IntrinsicAttributes & IContentLoaderProps) => (
+export const Skeleton = (
+  props: JSX.IntrinsicAttributes & IContentLoaderProps
+) => (
   <ContentLoader
     speed={2}
     width={294}
@@ -19,5 +20,3 @@ const Skeleton = (props: JSX.IntrinsicAttributes & IContentLoaderProps) => (
     <rect x="45" y="360" rx="10" ry="10" width="60" height="22" />
   </ContentLoader>
 );
-
-export default Skeleton;

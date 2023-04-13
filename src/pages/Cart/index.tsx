@@ -1,16 +1,14 @@
-import React, { FC } from "react";
-import { AiOutlineShoppingCart, AiOutlineDelete } from "react-icons/ai";
+import { FC } from "react";
 import { Link } from "react-router-dom";
+import { AiOutlineShoppingCart, AiOutlineDelete } from "react-icons/ai";
 
 import styles from "./Cart.module.scss";
-import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { clearCart } from "../../store/slices/cartSlice";
+import { clearCart } from "../../store/slices";
 import placeholder from "../../assets/emptyCart.svg";
-import CartItem from "../../components/CartItem/CartItem";
-import NoResultsImg from "../../components/NoResultsImg/NoResultsImg";
-import Recommendation from "../../components/Recommendation/Recommendation";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { CartItem, NoResultsImg, Recommendation } from "../../components";
 
-const Cart: FC = () => {
+export const Cart: FC = () => {
   const { cartList } = useAppSelector((state) => state.cartSlice);
   const { totalPrice, totalCount } = useAppSelector((state) => state.cartSlice);
   const dispatch = useAppDispatch();
@@ -58,5 +56,3 @@ const Cart: FC = () => {
     </div>
   );
 };
-
-export default Cart;

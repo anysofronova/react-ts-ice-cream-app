@@ -1,25 +1,24 @@
-import styles from "./Product.module.scss";
-import { useNavigate, useParams } from "react-router-dom";
-import { productsApi } from "../../services/ProductsService";
-import NotFound from "../NotFound/NotFound";
-import placeholder from "../../assets/imgPlaceholder.jpeg";
 import { FC, useEffect, useState } from "react";
-import { IProduct } from "../../models/IProduct";
-import OrderPanel from "../../components/Products/Item/OrderPanel/OrderPanel";
-import { CircularProgress } from "@mui/material";
+import { useNavigate, useParams } from "react-router-dom";
 
-const Product: FC = () => {
+import { NotFound } from "../NotFound";
+import { IProduct } from "../../models";
+import styles from "./Product.module.scss";
+import placeholder from "../../assets/imgPlaceholder.jpeg";
+import { productsApi } from "../../services/ProductsService";
+import { OrderPanel } from "../../components/Products/Item/OrderPanel";
+
+export const Product: FC = () => {
   const id: string = useParams().id || "-10";
   const navigate = useNavigate();
   if (id === "-10") navigate("/");
   const [product, setProduct] = useState<IProduct>();
-  const { data, isLoading, error } = productsApi.useFetchOneProductQuery(id);
+  const { data, error } = productsApi.useFetchOneProductQuery(id);
   useEffect(() => {
     if (data && data[0]) setProduct(data[0]);
   }, [data]);
   return (
     <div className={styles.container}>
-      {isLoading && <CircularProgress />}
       {error && (
         <div className={styles.error}>
           <NotFound />
@@ -78,5 +77,3 @@ const Product: FC = () => {
     </div>
   );
 };
-
-export default Product;
