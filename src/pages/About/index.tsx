@@ -1,6 +1,8 @@
-import styles from "./About.module.scss";
 import { FC } from "react";
-const About: FC = () => {
+
+import styles from "./About.module.scss";
+
+export const About: FC = () => {
   return (
     <div className={styles.about}>
       <h2>Our Story</h2>
@@ -39,5 +41,3 @@ const About: FC = () => {
     </div>
   );
 };
-
-export default About;

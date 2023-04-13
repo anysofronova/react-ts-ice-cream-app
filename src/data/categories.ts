@@ -1,6 +1,6 @@
-import { ICategories } from "../models/ICategories";
+import { ICategories } from "../models";
 
-const categories: ICategories[] = [
+export const categories: ICategories[] = [
   {
     title: "",
     id: 0,
@@ -30,5 +30,3 @@ const categories: ICategories[] = [
     id: 6,
   },
 ];
-
-export default categories;

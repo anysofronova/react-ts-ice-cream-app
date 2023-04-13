@@ -1,12 +1,9 @@
-import NativeSelect from "@mui/material/NativeSelect";
-import styles from "./Sort.module.scss";
-import { FormControl, InputLabel } from "@mui/material";
-import { useAppDispatch } from "../../../hooks/redux";
-import { changeSort } from "../../../store/slices/filterSlice";
 import { ChangeEvent, FC, memo, useCallback } from "react";
-import { setCurrentPage } from "../../../store/slices/mainSlice";
 
-const Sort: FC = memo(() => {
+import { useAppDispatch } from "../../../hooks/redux";
+import { changeSort, setCurrentPage } from "../../../store/slices";
+
+export const Sort: FC = memo(() => {
   const dispatch = useAppDispatch();
   const onChangeSort = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
     const sort = e.target.value.split(",");
@@ -14,26 +11,19 @@ const Sort: FC = memo(() => {
     dispatch(setCurrentPage(1));
   }, []);
   return (
-    <FormControl className={styles.sort}>
-      <InputLabel variant="standard" htmlFor="uncontrolled-native">
-        Sort by:
-      </InputLabel>
-      <NativeSelect
+    <div className="flex flex-col">
+      <label className="text-l font-medium self-end">Sort by</label>
+      <select
         onChange={(e) => onChangeSort(e)}
         defaultValue={"popularity,desc"}
-        inputProps={{
-          title: "title",
-          id: "number",
-        }}
+        className="outline-0 border-0"
       >
         <option value={"popularity,desc"}>Best-selling</option>
         <option value={"title"}>A → Z</option>
         <option value={"title,desc"}>Z → A</option>
         <option value={"prices"}>Price: Low to High</option>
         <option value={"prices,desc"}>Price: High to Low</option>
-      </NativeSelect>
-    </FormControl>
+      </select>
+    </div>
   );
 });
-
-export default Sort;
