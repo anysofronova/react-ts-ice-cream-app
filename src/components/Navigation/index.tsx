@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
-import styles from "./Navigation.module.scss";
 import { FC, memo } from "react";
-import navigationList from "../../data/navigationList";
+import { Link } from "react-router-dom";
 
-const Navigation: FC = memo(() => {
+import { navigationList } from "../../data";
+import styles from "./Navigation.module.scss";
+
+export const Navigation: FC = memo(() => {
   return (
     <nav className={styles.nav}>
       {navigationList.map((i) => (
@@ -14,5 +15,3 @@ const Navigation: FC = memo(() => {
     </nav>
   );
 });
-
-export default Navigation;

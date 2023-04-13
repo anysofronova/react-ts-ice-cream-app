@@ -1,11 +1,12 @@
-import styles from "./Item.module.scss";
-import placeholder from "../../../assets/imgPlaceholder.jpeg";
-import { IProduct } from "../../../models/IProduct";
-import { Link } from "react-router-dom";
-import OrderPanel from "./OrderPanel/OrderPanel";
 import { FC, memo } from "react";
+import { Link } from "react-router-dom";
 
-const Item: FC<IProduct> = memo(
+import styles from "./Item.module.scss";
+import { OrderPanel } from "./OrderPanel";
+import { IProduct } from "../../../models";
+import placeholder from "../../../assets/imgPlaceholder.jpeg";
+
+export const Item: FC<IProduct> = memo(
   ({ title, prices, imgUrl, id, imgUrlSmall, imgUrlMedium, filters }) => {
     return (
       <div className={styles.item}>
@@ -31,5 +32,3 @@ const Item: FC<IProduct> = memo(
     );
   }
 );
-
-export default Item;

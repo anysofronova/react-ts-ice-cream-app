@@ -1,12 +1,12 @@
-import styles from "./Categories.module.scss";
-import cn from "classnames";
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
-import { changeCategory } from "../../../store/slices/filterSlice";
-import { setCurrentPage } from "../../../store/slices/mainSlice";
 import { memo, useCallback } from "react";
-import myCategories from "../../../data/categories";
+import cn from "classnames";
 
-const Categories = memo(() => {
+import { categories } from "../../../data";
+import styles from "./Categories.module.scss";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
+import { changeCategory, setCurrentPage } from "../../../store/slices";
+
+export const Categories = memo(() => {
   const category = useAppSelector((state) => state.filterSlice.category);
   const dispatch = useAppDispatch();
   const onChangeCategory = useCallback(
@@ -18,7 +18,7 @@ const Categories = memo(() => {
   );
   return (
     <ul className={styles.categories}>
-      {myCategories.map((i) => (
+      {categories.map((i) => (
         <li
           key={i.id}
           onClick={() => onChangeCategory(i.title)}
@@ -35,5 +35,3 @@ const Categories = memo(() => {
     </ul>
   );
 });
-
-export default Categories;

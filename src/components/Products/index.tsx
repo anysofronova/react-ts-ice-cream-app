@@ -1,18 +1,18 @@
 import { FC, Fragment, useCallback } from "react";
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+
+import { Item } from "./Item";
+import { Skeleton } from "../UI";
+import { Filters } from "../Filters";
+import { NotFound } from "../../pages";
+import styles from "./Products.module.scss";
+import { NoResultsImg } from "../NoResultsImg";
+import { setCurrentPage } from "../../store/slices";
+import placeholder from "../../assets/noResults.svg";
+import { productsApi } from "../../services/ProductsService";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 
-import styles from "./Products.module.scss";
-import { productsApi } from "../../services/ProductsService";
-import Item from "./Item/Item";
-import Skeleton from "../UI/Skeleton";
-import Filters from "../Filters/Filters";
-import NotFound from "../../pages/NotFound/NotFound";
-import { setCurrentPage } from "../../store/slices/mainSlice";
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
-import NoResultsImg from "../NoResultsImg/NoResultsImg";
-import placeholder from "../../assets/noResults.svg";
-
-const Products: FC = () => {
+export const Products: FC = () => {
   const {
     sort: sortBy,
     category: filters,
@@ -94,5 +94,3 @@ const Products: FC = () => {
     </Fragment>
   );
 };
-
-export default Products;
